@@ -5,9 +5,16 @@ Installation
 git clone https://github.com/intrahealth/mhero-flows.git
 ```
 
-Example Generate Questionnaire From response files
 ```bash
 cd mhero-flows/floip2fhir
+```
+
+```bash
+npm i
+```
+
+Example Generate Questionnaire From response files
+```bash
 node floip2fhir.js --frPackage ./exampleFlows/frPackage.json --flowresponses ./exampleFlows/flowresults.json
 ```
 
