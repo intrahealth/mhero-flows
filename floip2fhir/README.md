@@ -20,5 +20,5 @@ node floip2fhir.js --frPackage ./exampleFlows/frPackage.json --flowresponses ./e
 
 Example Generate Questionnaire From Server
 ```bash
-sudo ./floip2fhir.js --server https://floip-server --authHeader 'Token XXXXYYYYZZZ'
+node ./floip2fhir.js --server https://floip-server --authHeader 'Token XXXXYYYYZZZ'
 ```
