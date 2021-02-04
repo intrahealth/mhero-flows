@@ -1,0 +1,29 @@
+{
+  "name": "mhero-flows",
+  "version": "1.0.0",
+  "description": "<img src=\"mherlogo.png\" width=\"350\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intrahealth/mhero-flows.git"
+  },
+  "keywords": [
+    "floip2fhir",
+    "mhero",
+    "floip",
+    "workflow"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/intrahealth/mhero-flows/issues"
+  },
+  "homepage": "https://github.com/intrahealth/mhero-flows#readme",
+  "dependencies": {
+    "@floip/flow-results-utils": "^1.0.5",
+    "nconf": "^0.11.2"
+  }
+}

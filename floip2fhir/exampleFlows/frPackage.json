@@ -1,0 +1,151 @@
+{
+  "profile": "flow-results-package",
+  "name": "flow_interop_social_demo",
+  "flow_results_specification_version": "1.0.0-rc1",
+  "created": "2019-04-09T22:49:54+00:00",
+  "modified": "2020-12-09T03:47:15+00:00",
+  "id": "5fa40351-3c77-4e1d-b0fd-2e2dcd1d4b65",
+  "title": "Flow Interop Social Demo",
+  "resources": [{
+    "profile": "data-resource",
+    "api_data_url": "https://go.votomobile.org/flow-results/packages/5fa40351-3c77-4e1d-b0fd-2e2dcd1d4b65/responses",
+    "access_method": "api",
+    "mediatype": "application/vnd.api+json",
+    "encoding": "utf-8",
+    "schema": {
+      "language": "eng",
+      "fields": [{
+          "name": "timestamp",
+          "title": "Timestamp",
+          "type": "datetime"
+        },
+        {
+          "name": "row_id",
+          "title": "Row ID",
+          "type": "string"
+        },
+        {
+          "name": "contact_id",
+          "title": "Contact ID",
+          "type": "string"
+        },
+        {
+          "name": "session_id",
+          "title": "Session ID",
+          "type": "string"
+        },
+        {
+          "name": "question_id",
+          "title": "Question ID",
+          "type": "string"
+        },
+        {
+          "name": "response",
+          "title": "Response",
+          "type": "any"
+        },
+        {
+          "name": "response_metadata",
+          "title": "Response Metadata",
+          "type": "object"
+        }
+      ],
+      "questions": {
+        "q_1520727469077_84": {
+          "type": "select_one",
+          "label": "How interested and excited are you for increased interoperability in ICT4D?",
+          "type_options": {
+            "choices": [
+              "Not really",
+              "Little bit",
+              "Lots",
+              "OMG YES"
+            ]
+          }
+        },
+        "q_1520727585604_31": {
+          "type": "numeric",
+          "label": "How many months until you foresee the need to launch a project making use of Flow Interoperability?",
+          "type_options": {
+            "range": [
+              -99,
+              99
+            ]
+          }
+        },
+        "q_1520727871659_64": {
+          "type": "open",
+          "label": "Most important capability?",
+          "type_options": {}
+        },
+        "q_1520739431185_81": {
+          "type": "select_one",
+          "label": "Where do you think Flow Interoperability support will be most useful?",
+          "type_options": {
+            "choices": [
+              "Content and telecoms",
+              "Crisis response times",
+              "Data understanding"
+            ]
+          }
+        },
+        "q_1521915343920_16": {
+          "type": "select_one",
+          "label": "How can I help out today?",
+          "type_options": {
+            "choices": [
+              "Know each other better",
+              "Survey again",
+              "Tell me a joke"
+            ]
+          }
+        },
+        "q_1521915979568_49": {
+          "type": "select_one",
+          "label": "Gender",
+          "type_options": {
+            "choices": [
+              "Male",
+              "Female",
+              "Other",
+              "Prefer not to say"
+            ]
+          }
+        },
+        "q_1521916104991_85": {
+          "type": "numeric",
+          "label": "Age",
+          "type_options": {
+            "range": [
+              -99,
+              99
+            ]
+          }
+        },
+        "q_1554851812087_23": {
+          "type": "select_one",
+          "label": "In the ICT4D ecosystem, what is your primary role?",
+          "type_options": {
+            "choices": [
+              "Software vendor",
+              "Development Implementer",
+              "Humanitarian Responder",
+              "Donor/Policy Maker",
+              "None of these"
+            ]
+          }
+        },
+        "q_1607484593402_65": {
+          "type": "select_one",
+          "label": "Hi! Is this your first visit?",
+          "type_options": {
+            "choices": [
+              "Yes",
+              "No"
+            ]
+          }
+        }
+      }
+    }
+  }]
+}
