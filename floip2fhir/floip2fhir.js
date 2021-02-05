@@ -18,29 +18,44 @@ class floip {
     this.respData = ''
   }
   convertFromFile() {
+    let bundle = {
+      resourceType: 'Bundle',
+      type: 'batch',
+      entry: []
+    }
     const frPackage = parse(FlowResultsDataPackage, this.pckgData);
     const converter = new FlowResultsToFHIRConverter(frPackage);
-    // const fhirQuestionnaire = converter.toQuestionnaire();
-    // console.log(JSON.stringify(fhirQuestionnaire, null, 2));
+    const fhirQuestionnaire = converter.toQuestionnaire();
+    bundle.entry.push(fhirQuestionnaire)
 
-    const fhirQuestionnaireResponse = converter.toQuestionnaireResponse(this.respData);
-    console.log(JSON.stringify(fhirQuestionnaireResponse, null, 2));
+    if(this.respData) {
+      const fhirQuestionnaireResponse = converter.toQuestionnaireResponse(this.respData);
+      bundle.entry.push(fhirQuestionnaireResponse)
+    }
+    console.log(JSON.stringify(bundle, 0, 2));
   }
 
   async convertFromServer() {
+    let bundle = {
+      resourceType: 'Bundle',
+      type: 'batch',
+      entry: []
+    }
     const client = new FlowResultsClient(this.server, this.authHeader);
     const packageIds = await client.getPackagesIds().then((r) => r.data).catch((e) => { console.error('Error', e);});
     if(!packageIds) {
       return callback();
     }
-    let questionnaireResponses = []
     async.eachSeries(packageIds, async (packageId, nxtId) => {
       const frPackage = await client.getPackage(packageId).then((r) => r.data).catch((e) => {
         console.error('Error', e);
         return nxtId();
       });
 
-      if(frPackage) {
+      const converter = new FlowResultsToFHIRConverter(frPackage);
+      const fhirQuestionnaire = converter.toQuestionnaire();
+      bundle.entry.push(fhirQuestionnaire)
+      if(frPackage && this.includeResponses) {
         // Convert all Responses to QuestionnaireResponse
         let options = {
           'page[size]': '500' // Adjust page size for memory consumption, up to the limits of server. Larger page sizes will be faster but consume more memory in the converter.
@@ -56,13 +71,13 @@ class floip {
           console.error('Error', e);
           return nxtId();
         });
-        questionnaireResponses = questionnaireResponses.concat(qnresp)
+        bundle.entry = bundle.entry.concat(qnresp)
         return nxtId();
       } else {
         return nxtId();
       }
     }, () => {
-      console.log(JSON.stringify(questionnaireResponses, 0, 2));
+      console.log(JSON.stringify(bundle, 0, 2));
     });
   }
 }
@@ -70,9 +85,10 @@ class floip {
 
 let server = nconf.get('server')
 let authHeader = nconf.get('authHeader')
+let includeResponses = nconf.get('includeResponses')
 let pckg = nconf.get('frPackage')
-let responses = nconf.get('flowresponses')
-if(pckg && responses) {
+let responses = nconf.get('flowResponses')
+if(pckg) {
   let pckgPromise = new Promise((resolve, reject) => {
     fs.readFile( pckg, ( err, data ) => {
       if(err) {
@@ -83,6 +99,9 @@ if(pckg && responses) {
   })
 
   let respPromise = new Promise((resolve, reject) => {
+    if(!responses) {
+      return resolve(null)
+    }
     fs.readFile( responses, ( err, data ) => {
       if(err) {
         return reject()
@@ -94,7 +113,9 @@ if(pckg && responses) {
   Promise.all([pckgPromise, respPromise]).then((resp) => {
     const floipObj = new floip()
     floipObj.pckgData = resp[0]
-    floipObj.respData = resp[1]
+    if(resp[1]) {
+      floipObj.respData = resp[1]
+    }
     floipObj.convertFromFile()
   })
 } else if(server) {
@@ -102,6 +123,7 @@ if(pckg && responses) {
   floipObj.server = server
   if(authHeader) {
     floipObj.authHeader = authHeader
+    floipObj.includeResponses = includeResponses
   }
   floipObj.convertFromServer()
 } else {
