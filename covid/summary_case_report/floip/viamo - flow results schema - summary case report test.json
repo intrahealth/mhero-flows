@@ -1,0 +1,101 @@
+{
+   "links": {
+      "self": "https://go.votomobile.org/flow-results/packages/a73158e6-86cf-4e39-b7d8-925dbc3bc6e1"
+   },
+   "data": {
+      "type": "packages",
+      "id": "a73158e6-86cf-4e39-b7d8-925dbc3bc6e1",
+      "attributes": {
+         "profile": "flow-results-package",
+         "name": "summary_case_report_test",
+         "flow_results_specification_version": "1.0.0-rc1",
+         "created": "2021-02-05T18:49:54+00:00",
+         "modified": "2021-02-05T19:21:57+00:00",
+         "id": "a73158e6-86cf-4e39-b7d8-925dbc3bc6e1",
+         "title": "Summary Case Report Test",
+         "resources": [
+            {
+               "profile": "data-resource",
+               "name": "summary_case_report_test-data",
+               "path": null,
+               "access_method": "api",
+               "api_data_url": "https://go.votomobile.org/flow-results/packages/a73158e6-86cf-4e39-b7d8-925dbc3bc6e1/responses",
+               "mediatype": "application/vnd.api+json",
+               "encoding": "utf-8",
+               "schema": {
+                  "language": "eng",
+                  "fields": [
+                     {
+                        "name": "timestamp",
+                        "title": "Timestamp",
+                        "type": "datetime"
+                     },
+                     {
+                        "name": "row_id",
+                        "title": "Row ID",
+                        "type": "string"
+                     },
+                     {
+                        "name": "contact_id",
+                        "title": "Contact ID",
+                        "type": "string"
+                     },
+                     {
+                        "name": "session_id",
+                        "title": "Session ID",
+                        "type": "string"
+                     },
+                     {
+                        "name": "question_id",
+                        "title": "Question ID",
+                        "type": "string"
+                     },
+                     {
+                        "name": "response",
+                        "title": "Response",
+                        "type": "any"
+                     },
+                     {
+                        "name": "response_metadata",
+                        "title": "Response Metadata",
+                        "type": "object"
+                     }
+                  ],
+                  "questions": {
+                     "q_1612547254947_65": {
+                        "type": "open",
+                        "label": "Patient ID",
+                        "semantic_label": "patient_id",
+                        "type_options": {}
+                     },
+                     "q_1612547262754_27": {
+                        "type": "numeric",
+                        "label": "Age",
+                        "semantic_label": "patient_age",
+                        "type_options": {
+                           "range": [
+                              0,
+                              110
+                           ]
+                        }
+                     },
+                     "q_1612552132940_36": {
+                        "type": "date",
+                        "label": "Patient Test Date",
+                        "semantic_label": "patient_test_date",
+                        "type_options": {}
+                     }
+                  }
+               }
+            }
+         ]
+      }
+   },
+   "relationships": {
+      "responses": {
+         "links": {
+            "related": "https://go.votomobile.org/flow-results/packages/a73158e6-86cf-4e39-b7d8-925dbc3bc6e1/responses"
+         }
+      }
+   }
+}

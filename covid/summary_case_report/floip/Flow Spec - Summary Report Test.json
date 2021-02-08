@@ -1,0 +1,900 @@
+{
+   "specification_version": "1.0.0-rc1",
+   "uuid": "95f29456-8a33-4d26-b22a-00b0b169056c",
+   "name": "Summary Case Report Test",
+   "description": "Summary Case Report Test",
+   "vendor_metadata": {},
+   "flows": [
+      {
+         "uuid": "06c912aa-0d36-4d9c-b144-0cd3a38e8293",
+         "name": "Summary Case Report Test",
+         "label": "Summary Case Report Test",
+         "last_modified": "2021-02-05 18:55:59.229Z",
+         "interaction_timeout": 172800,
+         "supported_modes": [
+            "sms",
+            "ussd",
+            "rich_messaging"
+         ],
+         "languages": [
+            {
+               "id": "eng",
+               "label": "English",
+               "iso_639_3": "eng",
+               "variant": null,
+               "bcp_47": "en-UK"
+            }
+         ],
+         "vendor_metadata": {},
+         "blocks": [
+            {
+               "uuid": "0a0da5ab-66bc-4cd5-94c1-1e97f1875ee0",
+               "vendor_metadata": {
+                  "io_viamo": {
+                     "ui_data": {
+                        "x_position": 313,
+                        "y_position": 107.00003051757813
+                     }
+                  }
+               },
+               "type": "MobilePrimitives.OpenResponse",
+               "name": "patient_id",
+               "label": "Patient ID",
+               "semantic_label": "patient_id",
+               "exits": [
+                  {
+                     "uuid": "3b5c4568-6f8e-43d8-9c23-e0f444c9fd26",
+                     "tag": "Default",
+                     "label": "Default",
+                     "default": true,
+                     "config": {},
+                     "destination_block": "80a8a17e-2438-454b-b2f0-4b64fd06d700"
+                  },
+                  {
+                     "uuid": "c834028d-0646-431e-9d30-33a0f5388073",
+                     "tag": "Error",
+                     "label": "Error",
+                     "config": {}
+                  }
+               ],
+               "config": {
+                  "prompt": "d99f9833-ace6-4f7f-957e-0a516e3dbb47"
+               }
+            },
+            {
+               "uuid": "80a8a17e-2438-454b-b2f0-4b64fd06d700",
+               "vendor_metadata": {
+                  "io_viamo": {
+                     "ui_data": {
+                        "x_position": 146,
+                        "y_position": 340.9999933242798
+                     }
+                  }
+               },
+               "type": "MobilePrimitives.NumericResponse",
+               "name": "patient_age",
+               "label": "Age",
+               "semantic_label": "patient_age",
+               "exits": [
+                  {
+                     "uuid": "7e95b9b2-7864-4111-bbb3-e3d1f616674e",
+                     "tag": "Default",
+                     "label": "Default",
+                     "default": true,
+                     "config": {},
+                     "destination_block": "697b530c-b08b-4aec-93b9-76e26f0ea264"
+                  },
+                  {
+                     "uuid": "5d0218a9-4104-4838-ae6c-dd5efc847b27",
+                     "tag": "Error",
+                     "label": "Error",
+                     "config": {}
+                  }
+               ],
+               "config": {
+                  "prompt": "d4d4b8a6-4b0e-4732-99b1-3bfb9bb7b40a",
+                  "validation_minimum": 0,
+                  "validation_maximum": 110
+               }
+            },
+            {
+               "uuid": "697b530c-b08b-4aec-93b9-76e26f0ea264",
+               "vendor_metadata": {
+                  "io_viamo": {
+                     "ui_data": {
+                        "x_position": 342,
+                        "y_position": 558.222222328186
+                     }
+                  }
+               },
+               "type": "MobilePrimitives.NumericResponse",
+               "name": "patient_test_date",
+               "label": "Patient Test Date",
+               "semantic_label": "patient_test_date",
+               "exits": [
+                  {
+                     "uuid": "766d200f-2c67-4cbc-8e9d-6d704d025b9f",
+                     "tag": "Default",
+                     "label": "Default",
+                     "default": true,
+                     "config": {},
+                     "destination_block": "08509fdf-2cd2-43a8-9627-011254d30aa7"
+                  },
+                  {
+                     "uuid": "bb2968a7-42f4-41f8-9c2c-5401ecb5e379",
+                     "tag": "Error",
+                     "label": "Error",
+                     "config": {}
+                  }
+               ],
+               "config": {
+                  "prompt": "03adfa55-1682-49c3-9f06-7226807186b2",
+                  "validation_minimum": 0,
+                  "validation_maximum": 31130000
+               }
+            },
+            {
+               "uuid": "08509fdf-2cd2-43a8-9627-011254d30aa7",
+               "vendor_metadata": {
+                  "io_viamo": {
+                     "ui_data": {
+                        "x_position": 411,
+                        "y_position": 801.3333206176758
+                     }
+                  }
+               },
+               "type": "MobilePrimitives.Message",
+               "name": "Summary",
+               "label": "Summary",
+               "semantic_label": "summary",
+               "exits": [
+                  {
+                     "uuid": "a42952e7-7be1-4abb-a39b-da3dab8c67cb",
+                     "tag": "Default",
+                     "label": "Default",
+                     "default": true,
+                     "config": {}
+                  }
+               ],
+               "config": {
+                  "prompt": "2ee0d5fb-de9a-4dea-ac47-f831fdc4be71",
+                  "message_audio": ""
+               }
+            }
+         ],
+         "first_block_id": "08509fdf-2cd2-43a8-9627-011254d30aa7"
+      }
+   ],
+   "resources": [
+      {
+         "uuid": "e4f3b00c-4bdc-40f0-8af4-6ecd4cc95b9e",
+         "values": [
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "23",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "23",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "23",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "23",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "23",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "sms"
+               ],
+               "value": "This is the Summary Case Report Form. Please provide the patient's Unique Identifier."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "ussd"
+               ],
+               "value": "This is the Summary Case Report Form. Please provide the patient's Unique Identifier."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "rich_messaging"
+               ],
+               "value": "This is the Summary Case Report Form. Please provide the patient's Unique Identifier."
+            }
+         ]
+      },
+      {
+         "uuid": "b84c6ba0-2b4a-4e2f-a862-22578adfc822",
+         "values": []
+      },
+      {
+         "uuid": "3cc2112e-622d-4901-b029-b866f8ce588a",
+         "values": []
+      },
+      {
+         "uuid": "feea5aa2-9423-4594-b08e-7c1d63123914",
+         "values": []
+      },
+      {
+         "uuid": "403ecc94-958b-4cf7-982b-04ef24dc945a",
+         "values": []
+      },
+      {
+         "uuid": "8b98833f-5097-4a19-8b06-5c5504a6dc07",
+         "values": []
+      },
+      {
+         "uuid": "304e42d5-35ac-4260-86d0-5eec15d26eb7",
+         "values": []
+      },
+      {
+         "uuid": "d99f9833-ace6-4f7f-957e-0a516e3dbb47",
+         "values": [
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "sms"
+               ],
+               "value": "This is the Summary Case Report Form. Please provide the patient's Unique Identifier."
+            }
+         ]
+      },
+      {
+         "uuid": "d99f9833-ace6-4f7f-957e-0a516e3dbb47",
+         "values": [
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "sms"
+               ],
+               "value": "This is the Summary Case Report Form. Please provide the patient's Unique Identifier."
+            }
+         ]
+      },
+      {
+         "uuid": "119e5628-f96b-4a00-ad8f-d349e820990c",
+         "values": []
+      },
+      {
+         "uuid": "9e851b5c-0d64-4860-ab01-53bb2726cf8e",
+         "values": []
+      },
+      {
+         "uuid": "d4d4b8a6-4b0e-4732-99b1-3bfb9bb7b40a",
+         "values": [
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "sms"
+               ],
+               "value": "Please provide the age of the patient in YEARS. If under age one, put 0."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "ussd"
+               ],
+               "value": "Please provide the age of the patient in YEARS. If under age one, put 0."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "rich_messaging"
+               ],
+               "value": "Please provide the age of the patient in YEARS. If under age one, put 0."
+            }
+         ]
+      },
+      {
+         "uuid": "d4d4b8a6-4b0e-4732-99b1-3bfb9bb7b40a",
+         "values": [
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "sms"
+               ],
+               "value": "Please provide the age of the patient in YEARS. If under age one, put 0."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "ussd"
+               ],
+               "value": "Please provide the age of the patient in YEARS. If under age one, put 0."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "rich_messaging"
+               ],
+               "value": "Please provide the age of the patient in YEARS. If under age one, put 0."
+            }
+         ]
+      },
+      {
+         "uuid": "21498289-0680-4a1d-9f13-cb2963c474b3",
+         "values": []
+      },
+      {
+         "uuid": "54394fd3-20c8-45ab-9245-93d8ee906738",
+         "values": []
+      },
+      {
+         "uuid": "03adfa55-1682-49c3-9f06-7226807186b2",
+         "values": [
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "sms"
+               ],
+               "value": "What is the date of first laboratory confirmation test? Please specify as DD/MM/YEAR,  e.g. 01052021."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "ussd"
+               ],
+               "value": "What is the date of first laboratory confirmation test? Please specify as DD/MM/YEAR,  e.g. 01052021."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "rich_messaging"
+               ],
+               "value": "What is the date of first laboratory confirmation test? Please specify as DD/MM/YEAR,  e.g. 01052021."
+            }
+         ]
+      },
+      {
+         "uuid": "03adfa55-1682-49c3-9f06-7226807186b2",
+         "values": [
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "sms"
+               ],
+               "value": "What is the date of first laboratory confirmation test? Please specify as DD/MM/YEAR,  e.g. 01052021."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "ussd"
+               ],
+               "value": "What is the date of first laboratory confirmation test? Please specify as DD/MM/YEAR,  e.g. 01052021."
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "rich_messaging"
+               ],
+               "value": "What is the date of first laboratory confirmation test? Please specify as DD/MM/YEAR,  e.g. 01052021."
+            }
+         ]
+      },
+      {
+         "uuid": "2ee0d5fb-de9a-4dea-ac47-f831fdc4be71",
+         "values": [
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "sms"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text"
+               ],
+               "modes": [
+                  "ussd"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "audio"
+               ],
+               "modes": [
+                  "ivr"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "rich_messaging"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "value": "",
+               "content_type": [
+                  "text",
+                  "image",
+                  "video"
+               ],
+               "modes": [
+                  "offline"
+               ]
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "sms"
+               ],
+               "value": "Thank you. You provided Identifier (@flow.patient_id), Age (@flow.patient_age), and Test Date (@flow.patient_test_date)"
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "ussd"
+               ],
+               "value": "Thank you. You provided Identifier (@flow.patient_id), Age (@flow.patient_age), and Test Date (@flow.patient_test_date)"
+            },
+            {
+               "language_id": "eng",
+               "content_type": "text",
+               "modes": [
+                  "rich_messaging"
+               ],
+               "value": "Thank you. You provided Identifier (@flow.patient_id), Age (@flow.patient_age), and Test Date (@flow.patient_test_date)"
+            }
+         ]
+      },
+      {
+         "uuid": "c5644052-913e-4ea2-973f-983598a27d8f",
+         "values": []
+      }
+   ]
+}
