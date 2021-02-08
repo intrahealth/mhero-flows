@@ -17,7 +17,7 @@ If only frPackage is included then the output will be a Questionnaire resource o
 
 Example Generate Questionnaire and QuestionnaireResponse From local JSON files of flow package and flow responses
 ```bash
-node floip2fhir.js --frPackage ./exampleFlows/frPackage.json --flowResponses ./exampleFlows/flowresults.json
+node floip2fhir.js --frPackage ./exampleFlows/frPackage.json --flowResponses ./exampleFlows/flowresults.json > ./exampleFlows/QuestionnaireBundle.json
 ```
 
 If you specify server address and want both Questionnaire and QuestionnaireResponse resources then you will need to include an option 'includeResponses'
