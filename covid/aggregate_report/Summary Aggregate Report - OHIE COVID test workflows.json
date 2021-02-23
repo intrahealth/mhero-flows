@@ -1,0 +1,288 @@
+{
+  "version": "13",
+  "site": "https://app.rapidpro.io",
+  "flows": [
+    {
+      "name": "Summary Aggregate Report - OHIE COVID test workflows",
+      "uuid": "4928b9ec-5dc3-4b3f-b109-98d3c7a66823",
+      "spec_version": "13.1.0",
+      "language": "eng",
+      "type": "messaging",
+      "nodes": [
+        {
+          "uuid": "afc8e435-417f-4f6e-83e8-bf1158552715",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Hello, this is the reporting system to submit aggregate caseload tracking information. What is the number of current hospitalizations? Please reply with a number only.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "8485cce5-8d5b-482f-9992-47bcef7522b6"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "6adb586d-deab-4042-a758-9fd59ed4f5c9",
+              "destination_uuid": "dbc7f2a8-8b8b-4241-97e0-78224efbf45f"
+            }
+          ]
+        },
+        {
+          "uuid": "dbc7f2a8-8b8b-4241-97e0-78224efbf45f",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "2a0a9588-4540-4ac5-bdf3-d39596305160",
+            "cases": [
+              {
+                "arguments": [],
+                "type": "has_number",
+                "uuid": "e36ee215-18ae-4f8e-85d3-44114e3c0d86",
+                "category_uuid": "dadfb40b-04bf-4d40-98ae-1a52a3fbcd16"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "dadfb40b-04bf-4d40-98ae-1a52a3fbcd16",
+                "name": "existing load #",
+                "exit_uuid": "efe93867-27e9-48a5-8a63-c3b1511c294a"
+              },
+              {
+                "uuid": "2a0a9588-4540-4ac5-bdf3-d39596305160",
+                "name": "Other",
+                "exit_uuid": "f2f66859-dd8a-4667-89b1-b390aa82f510"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "existing_patient_load"
+          },
+          "exits": [
+            {
+              "uuid": "efe93867-27e9-48a5-8a63-c3b1511c294a",
+              "destination_uuid": "5e7a7ce4-7942-4c61-bb17-f80c4e1f529c"
+            },
+            {
+              "uuid": "f2f66859-dd8a-4667-89b1-b390aa82f510",
+              "destination_uuid": "afc8e435-417f-4f6e-83e8-bf1158552715"
+            }
+          ]
+        },
+        {
+          "uuid": "5e7a7ce4-7942-4c61-bb17-f80c4e1f529c",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "How many new hospitalizations have you had in the past week? Please reply with a number only.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "a6fddf65-1ead-4f5c-a808-8580accf107a"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "0dbb5243-65ca-4388-9db6-15a4b7ed8acb",
+              "destination_uuid": "97a59745-10ea-4405-99f2-38ac2671a412"
+            }
+          ]
+        },
+        {
+          "uuid": "97a59745-10ea-4405-99f2-38ac2671a412",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "3d382ffb-3650-4812-b66d-7d966613af98",
+            "cases": [
+              {
+                "arguments": [],
+                "type": "has_number",
+                "uuid": "91a950e9-9160-4eba-9cbc-5a266660b71c",
+                "category_uuid": "07af4846-88ef-443e-9c03-7ebeb9ad0528"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "07af4846-88ef-443e-9c03-7ebeb9ad0528",
+                "name": "# new hospitalizations",
+                "exit_uuid": "750c01cd-0a63-4f05-a5c5-9b73de0f729d"
+              },
+              {
+                "uuid": "3d382ffb-3650-4812-b66d-7d966613af98",
+                "name": "Other",
+                "exit_uuid": "f1c3ae8a-b3da-4505-8adf-1ba0e4809f29"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "weekly_new_hospitalizations"
+          },
+          "exits": [
+            {
+              "uuid": "750c01cd-0a63-4f05-a5c5-9b73de0f729d",
+              "destination_uuid": "f5fcef9a-869f-49b3-bbbd-ab72039f7378"
+            },
+            {
+              "uuid": "f1c3ae8a-b3da-4505-8adf-1ba0e4809f29",
+              "destination_uuid": "5e7a7ce4-7942-4c61-bb17-f80c4e1f529c"
+            }
+          ]
+        },
+        {
+          "uuid": "f5fcef9a-869f-49b3-bbbd-ab72039f7378",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "How many of the hospitalized patients were discharged in the past week? Please reply with a number only.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "1ee4321a-b2a9-403f-9d6f-302463ef52b8"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "ce0b832e-392a-43eb-8245-c88b296b994e",
+              "destination_uuid": "90b4eddc-6425-481b-ac8c-3284d027a41f"
+            }
+          ]
+        },
+        {
+          "uuid": "90b4eddc-6425-481b-ac8c-3284d027a41f",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "743475c2-3a0c-4658-850e-e262c205b492",
+            "cases": [
+              {
+                "arguments": [],
+                "type": "has_number",
+                "uuid": "c90c5bc0-97c8-4a97-ade4-b1f69521bee3",
+                "category_uuid": "9cb8fd42-d3ad-4f1e-b17e-71e8dd17f4d3"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "9cb8fd42-d3ad-4f1e-b17e-71e8dd17f4d3",
+                "name": "# discharges",
+                "exit_uuid": "eb99259e-a765-4c2f-954c-47dfcd4570e3"
+              },
+              {
+                "uuid": "743475c2-3a0c-4658-850e-e262c205b492",
+                "name": "Other",
+                "exit_uuid": "ac6af1cd-1f1b-466c-ac7b-072d1f58058d"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "weekly_discharges"
+          },
+          "exits": [
+            {
+              "uuid": "eb99259e-a765-4c2f-954c-47dfcd4570e3",
+              "destination_uuid": "49ed8d8c-4522-481c-b12d-124ed66eef26"
+            },
+            {
+              "uuid": "ac6af1cd-1f1b-466c-ac7b-072d1f58058d",
+              "destination_uuid": "f5fcef9a-869f-49b3-bbbd-ab72039f7378"
+            }
+          ]
+        },
+        {
+          "uuid": "49ed8d8c-4522-481c-b12d-124ed66eef26",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Thank you for your responses. You reported that you have @results.existing_patient_load currently hospitalized patients, of which @results.new_hospitalizations were new in the past week, and you discharged @results.discharges patients.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "57017414-0972-4747-848b-73a9d5be1178"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "162d0651-aa2d-490b-bfd4-ddc084607250",
+              "destination_uuid": null
+            }
+          ]
+        }
+      ],
+      "_ui": {
+        "nodes": {
+          "afc8e435-417f-4f6e-83e8-bf1158552715": {
+            "position": {
+              "left": 60,
+              "top": 20
+            },
+            "type": "execute_actions"
+          },
+          "dbc7f2a8-8b8b-4241-97e0-78224efbf45f": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 20,
+              "top": 260
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "5e7a7ce4-7942-4c61-bb17-f80c4e1f529c": {
+            "position": {
+              "left": 140,
+              "top": 480
+            },
+            "type": "execute_actions"
+          },
+          "97a59745-10ea-4405-99f2-38ac2671a412": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 120,
+              "top": 680
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "f5fcef9a-869f-49b3-bbbd-ab72039f7378": {
+            "position": {
+              "left": 160,
+              "top": 880
+            },
+            "type": "execute_actions"
+          },
+          "90b4eddc-6425-481b-ac8c-3284d027a41f": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 140,
+              "top": 1080
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "49ed8d8c-4522-481c-b12d-124ed66eef26": {
+            "position": {
+              "left": 160,
+              "top": 1280
+            },
+            "type": "execute_actions"
+          }
+        }
+      },
+      "revision": 33,
+      "expire_after_minutes": 10080,
+      "metadata": {
+        "expires": 10080
+      },
+      "localization": {}
+    }
+  ],
+  "campaigns": [],
+  "triggers": [],
+  "fields": [],
+  "groups": []
+}
