@@ -1,0 +1,480 @@
+{
+  "version": "13",
+  "site": "https://app.rapidpro.io",
+  "flows": [
+    {
+      "name": "Registration - OHIE COVID test workflows",
+      "uuid": "77e4f2f9-b7df-4c5a-883b-4ab8bbfe2b3a",
+      "spec_version": "13.1.0",
+      "language": "eng",
+      "type": "messaging",
+      "nodes": [
+        {
+          "uuid": "8a8faa71-3e50-4d44-818e-bef7851bac5c",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Welcome to the registration system, we will ask you a few questions to make sure you are registered. Please reply with your employee ID.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "b17e3058-c94e-4e31-bdd3-d08880f17d82"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "cce8c61f-5fed-4e52-860c-037f0214fbf0",
+              "destination_uuid": "87d854d8-3066-4956-afc1-36465980d093"
+            }
+          ]
+        },
+        {
+          "uuid": "87d854d8-3066-4956-afc1-36465980d093",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "8b128600-8c14-4356-88f0-84fc376a82fc",
+            "cases": [
+              {
+                "arguments": [],
+                "type": "has_text",
+                "uuid": "2f9ed456-0fc2-4921-bd6d-d90aec3b1c9f",
+                "category_uuid": "505dc16f-6222-453d-9bee-aa0edcfc0eb8"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "505dc16f-6222-453d-9bee-aa0edcfc0eb8",
+                "name": "Has Text",
+                "exit_uuid": "ad68fdb3-2b3f-4148-a92e-7b3bd7640875"
+              },
+              {
+                "uuid": "8b128600-8c14-4356-88f0-84fc376a82fc",
+                "name": "Other",
+                "exit_uuid": "d094a1a6-f737-4497-bfb1-7c0c53df3231"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "employee_id"
+          },
+          "exits": [
+            {
+              "uuid": "ad68fdb3-2b3f-4148-a92e-7b3bd7640875",
+              "destination_uuid": "4d4d18b9-02c1-4640-b13e-a2b190bcc1f9"
+            },
+            {
+              "uuid": "d094a1a6-f737-4497-bfb1-7c0c53df3231",
+              "destination_uuid": "8a8faa71-3e50-4d44-818e-bef7851bac5c"
+            }
+          ]
+        },
+        {
+          "uuid": "4d4d18b9-02c1-4640-b13e-a2b190bcc1f9",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Thank you. Can you please provide your last name for confirmation?",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "53cebbe8-fa83-4375-8b61-82f33297d61a"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "65049d60-96d8-4241-864d-e778064038bd",
+              "destination_uuid": "04716c2b-61f4-4f82-87e9-e7003e259daa"
+            }
+          ]
+        },
+        {
+          "uuid": "04716c2b-61f4-4f82-87e9-e7003e259daa",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "ae1b999f-bcff-4d3f-9cf8-f6c121002af4",
+            "cases": [
+              {
+                "arguments": [],
+                "type": "has_text",
+                "uuid": "72df4951-4e01-4744-89c6-340ec163eefd",
+                "category_uuid": "f22e7823-7d74-4366-8682-c35a6eef3e9d"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "f22e7823-7d74-4366-8682-c35a6eef3e9d",
+                "name": "Has Text",
+                "exit_uuid": "a2b51b92-4c38-476b-9a7e-5d580e5984e6"
+              },
+              {
+                "uuid": "ae1b999f-bcff-4d3f-9cf8-f6c121002af4",
+                "name": "Other",
+                "exit_uuid": "a2247381-da65-4ba8-821c-d5445b259e07"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "employee_last_name"
+          },
+          "exits": [
+            {
+              "uuid": "a2b51b92-4c38-476b-9a7e-5d580e5984e6",
+              "destination_uuid": "f3c210c7-6fed-44f7-b59f-f3297f485020"
+            },
+            {
+              "uuid": "a2247381-da65-4ba8-821c-d5445b259e07",
+              "destination_uuid": "4d4d18b9-02c1-4640-b13e-a2b190bcc1f9"
+            }
+          ]
+        },
+        {
+          "uuid": "f3c210c7-6fed-44f7-b59f-f3297f485020",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Will you be doing case reporting, aggregate reporting, or both? Please reply with 1 for case reporting, 2 for aggregate reporting, or 3 for both.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "8be70372-8cfd-468b-9e02-2d27f0f33417"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "afd02373-e1af-45bb-9d57-71da9a124d4a",
+              "destination_uuid": "72538b4d-5920-4e30-8d71-f982351d57a2"
+            }
+          ]
+        },
+        {
+          "uuid": "72538b4d-5920-4e30-8d71-f982351d57a2",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "73526e3e-0363-4b53-ac7b-85ec733059da",
+            "cases": [
+              {
+                "arguments": [
+                  "1"
+                ],
+                "type": "has_number_eq",
+                "uuid": "0173d212-56ce-4967-9690-980cb1cc394c",
+                "category_uuid": "cf7d50e4-0790-4580-8a74-2ab9d2b8ec5e"
+              },
+              {
+                "arguments": [
+                  "2"
+                ],
+                "type": "has_any_word",
+                "uuid": "d5048c9c-b91d-4c77-bdd5-1a9c9e127a20",
+                "category_uuid": "0db7e1ce-e2ba-417e-bb2b-ce969625553d"
+              },
+              {
+                "arguments": [
+                  "3"
+                ],
+                "type": "has_any_word",
+                "uuid": "71007920-0c0c-4c9c-8502-8e857ecb143a",
+                "category_uuid": "ff432715-449f-4aaa-8d2e-a9f08f8c2ba8"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "cf7d50e4-0790-4580-8a74-2ab9d2b8ec5e",
+                "name": "case reporting",
+                "exit_uuid": "70f457ac-914c-4942-9028-1987a7458bfa"
+              },
+              {
+                "uuid": "0db7e1ce-e2ba-417e-bb2b-ce969625553d",
+                "name": "aggregate reporting",
+                "exit_uuid": "5f6c7b79-cab7-4e2b-a1f6-3008b9a444c4"
+              },
+              {
+                "uuid": "ff432715-449f-4aaa-8d2e-a9f08f8c2ba8",
+                "name": "both case and aggregate",
+                "exit_uuid": "61c68f05-f7a0-4545-934d-50e333dadfe1"
+              },
+              {
+                "uuid": "73526e3e-0363-4b53-ac7b-85ec733059da",
+                "name": "Other",
+                "exit_uuid": "88038bec-70d6-4ea2-9397-95ceedc46ce0"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "reporting_type"
+          },
+          "exits": [
+            {
+              "uuid": "70f457ac-914c-4942-9028-1987a7458bfa",
+              "destination_uuid": "4c1bcbe4-6235-4c44-9dd3-e9462e07d3ba"
+            },
+            {
+              "uuid": "5f6c7b79-cab7-4e2b-a1f6-3008b9a444c4",
+              "destination_uuid": "4c1bcbe4-6235-4c44-9dd3-e9462e07d3ba"
+            },
+            {
+              "uuid": "61c68f05-f7a0-4545-934d-50e333dadfe1",
+              "destination_uuid": "4c1bcbe4-6235-4c44-9dd3-e9462e07d3ba"
+            },
+            {
+              "uuid": "88038bec-70d6-4ea2-9397-95ceedc46ce0",
+              "destination_uuid": "f3c210c7-6fed-44f7-b59f-f3297f485020"
+            }
+          ]
+        },
+        {
+          "uuid": "4c1bcbe4-6235-4c44-9dd3-e9462e07d3ba",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Can you please confirm the district in which the facility is located? Please reply with the district name only.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "60e980ac-9594-4ea9-8e6d-cffc1dc9561d"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "084d536e-49a0-41f8-8da6-b701e7b8617b",
+              "destination_uuid": "5dd9e319-d989-426e-a0f5-245d4f36e8ac"
+            }
+          ]
+        },
+        {
+          "uuid": "5dd9e319-d989-426e-a0f5-245d4f36e8ac",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "8f1146b0-acb5-42bf-a4cc-774288d5641d",
+            "cases": [
+              {
+                "arguments": [],
+                "type": "has_text",
+                "uuid": "ca3b320d-1964-4647-b427-6ef46e40e7c3",
+                "category_uuid": "abe5620f-c374-43af-b8f7-b17150f34c7e"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "abe5620f-c374-43af-b8f7-b17150f34c7e",
+                "name": "district",
+                "exit_uuid": "f50ad100-a9c2-499f-a233-207cc1c91b2d"
+              },
+              {
+                "uuid": "8f1146b0-acb5-42bf-a4cc-774288d5641d",
+                "name": "Other",
+                "exit_uuid": "4dfd6bbc-1809-4cff-9f32-0cb88af5dd37"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "facility_district"
+          },
+          "exits": [
+            {
+              "uuid": "f50ad100-a9c2-499f-a233-207cc1c91b2d",
+              "destination_uuid": "13091777-c4fb-4c0a-affd-d86eb195d3f7"
+            },
+            {
+              "uuid": "4dfd6bbc-1809-4cff-9f32-0cb88af5dd37",
+              "destination_uuid": "4c1bcbe4-6235-4c44-9dd3-e9462e07d3ba"
+            }
+          ]
+        },
+        {
+          "uuid": "13091777-c4fb-4c0a-affd-d86eb195d3f7",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "What is the ID number of the facility where you work?",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "3891cb00-fcef-4ed5-ba26-adb6af202002"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "8a49ba5d-9179-49a8-a878-814f09c62a80",
+              "destination_uuid": "7bfcf74f-a0e6-4b93-ba1c-f8556f3697eb"
+            }
+          ]
+        },
+        {
+          "uuid": "7bfcf74f-a0e6-4b93-ba1c-f8556f3697eb",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "b75b0eff-d52a-422d-a7f1-8c221c2f25e5",
+            "cases": [
+              {
+                "arguments": [],
+                "type": "has_number",
+                "uuid": "e17c3142-ed56-4208-893b-4d73644e56cd",
+                "category_uuid": "ddd3a148-d0e9-4c34-aed2-ba509b432cf6"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "ddd3a148-d0e9-4c34-aed2-ba509b432cf6",
+                "name": "facility",
+                "exit_uuid": "e2f4d83f-5de4-4ca2-85b3-d31fd4e9af8b"
+              },
+              {
+                "uuid": "b75b0eff-d52a-422d-a7f1-8c221c2f25e5",
+                "name": "Other",
+                "exit_uuid": "e953c15d-24be-4c9f-8b2c-3ccfe6703649"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "facility_id"
+          },
+          "exits": [
+            {
+              "uuid": "e2f4d83f-5de4-4ca2-85b3-d31fd4e9af8b",
+              "destination_uuid": "066051c9-74ee-454a-bae9-53d1ea42a8ca"
+            },
+            {
+              "uuid": "e953c15d-24be-4c9f-8b2c-3ccfe6703649",
+              "destination_uuid": "13091777-c4fb-4c0a-affd-d86eb195d3f7"
+            }
+          ]
+        },
+        {
+          "uuid": "066051c9-74ee-454a-bae9-53d1ea42a8ca",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Thank you. You are now registered as @results.employee_last_name, with the employee ID @results.employee_id, based at the facility with ID number @results.facility_id in @results.facility_district district. You are registered to do @results.reporting_type.category reporting.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "1d8be56e-1142-48dd-8995-c713b2664280"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "7e612777-318e-4a4c-924f-f9df5268ed10",
+              "destination_uuid": null
+            }
+          ]
+        }
+      ],
+      "_ui": {
+        "nodes": {
+          "8a8faa71-3e50-4d44-818e-bef7851bac5c": {
+            "position": {
+              "left": 80,
+              "top": 0
+            },
+            "type": "execute_actions"
+          },
+          "87d854d8-3066-4956-afc1-36465980d093": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 40,
+              "top": 220
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "4d4d18b9-02c1-4640-b13e-a2b190bcc1f9": {
+            "position": {
+              "left": 140,
+              "top": 420
+            },
+            "type": "execute_actions"
+          },
+          "04716c2b-61f4-4f82-87e9-e7003e259daa": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 100,
+              "top": 600
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "f3c210c7-6fed-44f7-b59f-f3297f485020": {
+            "position": {
+              "left": 320,
+              "top": 780
+            },
+            "type": "execute_actions"
+          },
+          "72538b4d-5920-4e30-8d71-f982351d57a2": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 40,
+              "top": 1000
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "4c1bcbe4-6235-4c44-9dd3-e9462e07d3ba": {
+            "position": {
+              "left": 160,
+              "top": 1280
+            },
+            "type": "execute_actions"
+          },
+          "5dd9e319-d989-426e-a0f5-245d4f36e8ac": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 160,
+              "top": 1500
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "13091777-c4fb-4c0a-affd-d86eb195d3f7": {
+            "position": {
+              "left": 220,
+              "top": 1700
+            },
+            "type": "execute_actions"
+          },
+          "7bfcf74f-a0e6-4b93-ba1c-f8556f3697eb": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 180,
+              "top": 1840
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "066051c9-74ee-454a-bae9-53d1ea42a8ca": {
+            "position": {
+              "left": 360,
+              "top": 2060
+            },
+            "type": "execute_actions"
+          }
+        }
+      },
+      "revision": 61,
+      "expire_after_minutes": 10080,
+      "metadata": {
+        "expires": 10080
+      },
+      "localization": {}
+    }
+  ],
+  "campaigns": [],
+  "triggers": [],
+  "fields": [],
+  "groups": []
+}
