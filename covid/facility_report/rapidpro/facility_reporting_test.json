@@ -3,265 +3,471 @@
   "site": "https://app.rapidpro.io",
   "flows": [
     {
-      "name": "Summary Case Report - OHIE COVID test workflows",
-      "uuid": "630aed00-f07a-4506-9196-8c77d892cfc9",
+      "name": "Facility Reporting - OHIE COVID test workflows",
+      "uuid": "28bb8707-03d8-4d4d-b96c-d1a348329798",
       "spec_version": "13.1.0",
       "language": "eng",
       "type": "messaging",
       "nodes": [
         {
-          "uuid": "8dc74044-519d-4117-badb-59921b33afaf",
+          "uuid": "fd0b9092-e74f-4665-b718-8ace6f3e3364",
           "actions": [
             {
               "attachments": [],
-              "text": "This is the Summary Case Report Form. Please provide the patient's Unique Identifier.",
+              "text": "This is an MOH short survey for all health facilities. Have all of the health workers in your facility been vaccinated against COVID-19? Please reply 1 for Yes, 2 for No, or 3 to provide more information.",
               "type": "send_msg",
-              "all_urns": false,
               "quick_replies": [],
-              "uuid": "2a901d3a-0ff0-40d8-b1b8-866e2dc49790"
+              "uuid": "1a54b832-8a52-434b-b8cf-3ecbf9d040b3"
             }
           ],
           "exits": [
             {
-              "uuid": "54782fff-6350-4c1a-b823-5aaf72eed032",
-              "destination_uuid": "bc7d3db9-e1f4-4b35-97e9-e7417c0f2723"
+              "uuid": "95f21bd4-2296-423e-8cb7-36ceefa4cc82",
+              "destination_uuid": "7212596a-cd1c-4cc5-b2cd-370798d1605e"
             }
           ]
         },
         {
-          "uuid": "bc7d3db9-e1f4-4b35-97e9-e7417c0f2723",
+          "uuid": "7212596a-cd1c-4cc5-b2cd-370798d1605e",
           "actions": [],
           "router": {
             "type": "switch",
-            "default_category_uuid": "bed084fc-137a-4025-b8e3-9fe7891df36d",
-            "cases": [],
-            "categories": [
-              {
-                "uuid": "bed084fc-137a-4025-b8e3-9fe7891df36d",
-                "name": "All Responses",
-                "exit_uuid": "0d3337d6-b4f7-4c8a-a4ac-f6552e2bd070"
-              }
-            ],
-            "operand": "@input.text",
-            "wait": {
-              "type": "msg"
-            },
-            "result_name": "patient_id"
-          },
-          "exits": [
-            {
-              "uuid": "0d3337d6-b4f7-4c8a-a4ac-f6552e2bd070",
-              "destination_uuid": "19481505-d31e-4d85-a3ca-ea09fe997f8a"
-            }
-          ]
-        },
-        {
-          "uuid": "19481505-d31e-4d85-a3ca-ea09fe997f8a",
-          "actions": [
-            {
-              "attachments": [],
-              "text": "Please provide the age of the patient in YEARS. If under age one, put 0.",
-              "type": "send_msg",
-              "quick_replies": [],
-              "uuid": "a19a1201-e1cc-4f52-a293-066d339b5f15"
-            }
-          ],
-          "exits": [
-            {
-              "uuid": "db08bc07-2fc4-48b7-9ba8-0233e3bddc78",
-              "destination_uuid": "acf0d621-658e-42e1-93b7-592147453a39"
-            }
-          ]
-        },
-        {
-          "uuid": "acf0d621-658e-42e1-93b7-592147453a39",
-          "actions": [],
-          "router": {
-            "type": "switch",
-            "default_category_uuid": "d0ada553-7e01-4057-b7e6-dbe28292c38b",
+            "default_category_uuid": "688cb150-c795-4e0d-a879-05bd7d0a7800",
             "cases": [
               {
                 "arguments": [
-                  "0",
-                  "110"
+                  "1"
                 ],
-                "type": "has_number_between",
-                "uuid": "3b48695a-5d90-4342-839b-c026cf34c2bb",
-                "category_uuid": "553d3ea7-ab9b-45e8-89fc-963d4edaa114"
+                "type": "has_number_eq",
+                "uuid": "7d173b9e-9df5-422a-b5d3-09731f2c67c1",
+                "category_uuid": "092e647a-8985-44ae-9d08-df158c7c5a7a"
+              },
+              {
+                "arguments": [
+                  "2"
+                ],
+                "type": "has_number_eq",
+                "uuid": "b7c61f02-6918-4b86-8563-b6fb86360e58",
+                "category_uuid": "faf09791-6b97-4d8c-a4d9-79dcc89be705"
+              },
+              {
+                "arguments": [
+                  "3"
+                ],
+                "type": "has_number_eq",
+                "uuid": "96401f31-488e-4a2f-8184-f500a6dd241b",
+                "category_uuid": "f876ddb6-b02c-4824-9c5d-f732e18a893b"
               }
             ],
             "categories": [
               {
-                "uuid": "553d3ea7-ab9b-45e8-89fc-963d4edaa114",
-                "name": "Has Number",
-                "exit_uuid": "430618c8-9bd4-41cd-bb3d-c9543b2ceb90"
+                "uuid": "092e647a-8985-44ae-9d08-df158c7c5a7a",
+                "name": "Yes",
+                "exit_uuid": "bbc8eae0-7608-4b0b-ae41-b982148e5f0f"
               },
               {
-                "uuid": "d0ada553-7e01-4057-b7e6-dbe28292c38b",
+                "uuid": "faf09791-6b97-4d8c-a4d9-79dcc89be705",
+                "name": "No",
+                "exit_uuid": "091c34ee-06ab-4edc-859c-f341a96ad9f5"
+              },
+              {
+                "uuid": "f876ddb6-b02c-4824-9c5d-f732e18a893b",
+                "name": "Has Text",
+                "exit_uuid": "2a32b040-ceda-4601-be17-8184326b864a"
+              },
+              {
+                "uuid": "688cb150-c795-4e0d-a879-05bd7d0a7800",
                 "name": "Other",
-                "exit_uuid": "bc4944ab-8ae0-495b-b542-6ed824539d06"
+                "exit_uuid": "de0e9be3-0ff3-4063-af05-0c58dde4cdb7"
               }
             ],
             "operand": "@input.text",
             "wait": {
               "type": "msg"
             },
-            "result_name": "patient_age"
+            "result_name": "workers_vaccinated"
           },
           "exits": [
             {
-              "uuid": "430618c8-9bd4-41cd-bb3d-c9543b2ceb90",
-              "destination_uuid": "d4bceb25-fb1a-4d4e-b094-10ed63b5954b"
+              "uuid": "bbc8eae0-7608-4b0b-ae41-b982148e5f0f",
+              "destination_uuid": "623bd034-8bc5-443b-a19e-1feed5f43d7f"
             },
             {
-              "uuid": "bc4944ab-8ae0-495b-b542-6ed824539d06",
-              "destination_uuid": "19481505-d31e-4d85-a3ca-ea09fe997f8a"
+              "uuid": "091c34ee-06ab-4edc-859c-f341a96ad9f5",
+              "destination_uuid": "623bd034-8bc5-443b-a19e-1feed5f43d7f"
+            },
+            {
+              "uuid": "2a32b040-ceda-4601-be17-8184326b864a",
+              "destination_uuid": "71a469c3-4fdd-4b8f-b326-eb458e38a88d"
+            },
+            {
+              "uuid": "de0e9be3-0ff3-4063-af05-0c58dde4cdb7",
+              "destination_uuid": "fd0b9092-e74f-4665-b718-8ace6f3e3364"
             }
           ]
         },
         {
-          "uuid": "d4bceb25-fb1a-4d4e-b094-10ed63b5954b",
+          "uuid": "71a469c3-4fdd-4b8f-b326-eb458e38a88d",
           "actions": [
             {
               "attachments": [],
-              "text": "What is the date of first laboratory confirmation test? Please specify as DD/MM/YEAR,  e.g. 01052021.",
+              "text": "Please provide more information.",
               "type": "send_msg",
               "quick_replies": [],
-              "uuid": "4acdb4f3-2a96-428d-ad0d-87dd1d04f1a2"
+              "uuid": "e4c3fe69-b5ce-4b2f-ac61-7e3f9c1faecf"
             }
           ],
           "exits": [
             {
-              "uuid": "dd359e95-a26f-4505-862f-95d7c836a949",
-              "destination_uuid": "6399d220-a4f8-4274-8224-a8a31aa3c36d"
+              "uuid": "251a7195-6de9-4743-90c1-ac2fef8a5a9d",
+              "destination_uuid": "cd679dc2-9ae0-49fe-8e76-1181aabef601"
             }
           ]
         },
         {
-          "uuid": "f2b80452-4b6f-4ebd-b8b8-96fe28b40a98",
-          "actions": [
-            {
-              "attachments": [],
-              "text": "Thank you. You provided Identifier (@results.patient_id), Age (@results.patient_age), and Test Date (@results.patient_test_date)",
-              "type": "send_msg",
-              "quick_replies": [],
-              "uuid": "161642bb-4073-442f-8470-5b4b9922bc49"
-            }
-          ],
-          "exits": [
-            {
-              "uuid": "06d11255-3706-4845-89ed-b7399b6b0648",
-              "destination_uuid": null
-            }
-          ]
-        },
-        {
-          "uuid": "6399d220-a4f8-4274-8224-a8a31aa3c36d",
+          "uuid": "cd679dc2-9ae0-49fe-8e76-1181aabef601",
           "actions": [],
           "router": {
             "type": "switch",
-            "default_category_uuid": "85aaa8da-e8e3-4aba-9d68-fcbfb4041d38",
-            "cases": [
-              {
-                "arguments": [],
-                "type": "has_date",
-                "uuid": "aa4712db-11ff-49ab-aa75-4509ba884f57",
-                "category_uuid": "429674cb-31e3-486a-98d9-4d14c10d35c5"
-              }
-            ],
+            "default_category_uuid": "606f93a1-1905-4a3c-b0ad-440bbc7aa4dd",
+            "cases": [],
             "categories": [
               {
-                "uuid": "429674cb-31e3-486a-98d9-4d14c10d35c5",
-                "name": "Has Number",
-                "exit_uuid": "cf7bd0b9-4190-4f74-819a-475212d32a5f"
-              },
-              {
-                "uuid": "85aaa8da-e8e3-4aba-9d68-fcbfb4041d38",
-                "name": "Other",
-                "exit_uuid": "e3c8874c-df2b-4ef0-9236-d03004b5b1d5"
+                "uuid": "606f93a1-1905-4a3c-b0ad-440bbc7aa4dd",
+                "name": "All Responses",
+                "exit_uuid": "6bac919c-4f50-4714-88e4-399fa7471d5e"
               }
             ],
             "operand": "@input.text",
             "wait": {
               "type": "msg"
             },
-            "result_name": "patient_test_date"
+            "result_name": "workers_vaccinated_info"
           },
           "exits": [
             {
-              "uuid": "cf7bd0b9-4190-4f74-819a-475212d32a5f",
-              "destination_uuid": "f2b80452-4b6f-4ebd-b8b8-96fe28b40a98"
+              "uuid": "6bac919c-4f50-4714-88e4-399fa7471d5e",
+              "destination_uuid": "623bd034-8bc5-443b-a19e-1feed5f43d7f"
+            }
+          ]
+        },
+        {
+          "uuid": "623bd034-8bc5-443b-a19e-1feed5f43d7f",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Has your facility physically received vaccines for COVID-19 intended for patients? Please reply 1 for Yes, 2 for No, or 3 to provide more information.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "24c80c3f-0f07-49dc-bd5c-dd192ebdc1db"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "95a9d180-dfbd-40ee-87c9-4dac79957977",
+              "destination_uuid": "31db4ca1-8726-425a-829d-aeddd567f02c"
+            }
+          ]
+        },
+        {
+          "uuid": "31db4ca1-8726-425a-829d-aeddd567f02c",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "b617fa3b-c547-4704-808a-46ae56d4bb9d",
+            "cases": [
+              {
+                "arguments": [
+                  "1"
+                ],
+                "type": "has_number_eq",
+                "uuid": "ff8efc39-f006-402b-adab-579017e618e0",
+                "category_uuid": "a2e6b6d2-725d-4080-acdb-48a9be35d409"
+              },
+              {
+                "arguments": [
+                  "2"
+                ],
+                "type": "has_number_eq",
+                "uuid": "d154c5c3-abb3-4474-b482-256cac668766",
+                "category_uuid": "e91a7677-a65f-4247-9bc1-4c4de7523a72"
+              },
+              {
+                "arguments": [],
+                "type": "has_text",
+                "uuid": "4983c15b-b00d-4f79-ab6e-139e944a7fa2",
+                "category_uuid": "090ba28c-3b03-4183-9f69-beed74d8df93"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "a2e6b6d2-725d-4080-acdb-48a9be35d409",
+                "name": "Yes",
+                "exit_uuid": "8cd9ab5c-844f-421a-92ce-6610f7dd7e69"
+              },
+              {
+                "uuid": "e91a7677-a65f-4247-9bc1-4c4de7523a72",
+                "name": "No",
+                "exit_uuid": "e6df74dd-2074-4ad0-b5bf-6e4706739751"
+              },
+              {
+                "uuid": "090ba28c-3b03-4183-9f69-beed74d8df93",
+                "name": "Has Text",
+                "exit_uuid": "3fe182f6-be58-49ce-8047-df0c73dbbd6f"
+              },
+              {
+                "uuid": "b617fa3b-c547-4704-808a-46ae56d4bb9d",
+                "name": "Other",
+                "exit_uuid": "cceea08f-df32-4207-abed-99454adbf0d5"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "patient_vacc_received"
+          },
+          "exits": [
+            {
+              "uuid": "8cd9ab5c-844f-421a-92ce-6610f7dd7e69",
+              "destination_uuid": "d5f21fa2-7867-45ab-8741-bb03ae797bd6"
             },
             {
-              "uuid": "e3c8874c-df2b-4ef0-9236-d03004b5b1d5",
-              "destination_uuid": "d4bceb25-fb1a-4d4e-b094-10ed63b5954b"
+              "uuid": "e6df74dd-2074-4ad0-b5bf-6e4706739751",
+              "destination_uuid": "d5f21fa2-7867-45ab-8741-bb03ae797bd6"
+            },
+            {
+              "uuid": "3fe182f6-be58-49ce-8047-df0c73dbbd6f",
+              "destination_uuid": "d1ddcfa7-2530-4c50-8468-69e6c48b5b49"
+            },
+            {
+              "uuid": "cceea08f-df32-4207-abed-99454adbf0d5",
+              "destination_uuid": "623bd034-8bc5-443b-a19e-1feed5f43d7f"
+            }
+          ]
+        },
+        {
+          "uuid": "d1ddcfa7-2530-4c50-8468-69e6c48b5b49",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Please provide more information.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "d8b10dd9-a174-40d3-b3bc-178440a863da"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "3c967356-419a-4187-9cb9-320d20bfec71",
+              "destination_uuid": "358be946-177f-4c08-b423-9d91e1fe4994"
+            }
+          ]
+        },
+        {
+          "uuid": "358be946-177f-4c08-b423-9d91e1fe4994",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "98301165-f9c2-4c0c-8f4a-ff611a22e7e9",
+            "cases": [],
+            "categories": [
+              {
+                "uuid": "98301165-f9c2-4c0c-8f4a-ff611a22e7e9",
+                "name": "All Responses",
+                "exit_uuid": "3a7d3963-931c-4ee6-a140-8546173b5653"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "patient_vacc_received_info"
+          },
+          "exits": [
+            {
+              "uuid": "3a7d3963-931c-4ee6-a140-8546173b5653",
+              "destination_uuid": "d5f21fa2-7867-45ab-8741-bb03ae797bd6"
+            }
+          ]
+        },
+        {
+          "uuid": "d5f21fa2-7867-45ab-8741-bb03ae797bd6",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "How many patients have been vaccinated in the past week? Please reply with a number.",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "10d533f5-0817-4ddc-8a3e-62761c4e3b79"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "845f09b9-c440-4dcd-a062-dd3efa09ddeb",
+              "destination_uuid": "2d3f2c7e-98ca-4612-bbff-0d36e572074e"
+            }
+          ]
+        },
+        {
+          "uuid": "2d3f2c7e-98ca-4612-bbff-0d36e572074e",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "2e86b2e6-e849-4fed-b6cf-f73cb10b303c",
+            "cases": [
+              {
+                "arguments": [],
+                "type": "has_number",
+                "uuid": "4ad6183f-9204-40c1-98c0-363462d31032",
+                "category_uuid": "f30010ca-8a73-4d17-a93c-58f2d91e0ae1"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "f30010ca-8a73-4d17-a93c-58f2d91e0ae1",
+                "name": "Has Number",
+                "exit_uuid": "809c1ee7-c7a0-4d10-b885-70262670f50e"
+              },
+              {
+                "uuid": "2e86b2e6-e849-4fed-b6cf-f73cb10b303c",
+                "name": "Other",
+                "exit_uuid": "0c9622dd-14bc-426b-81b1-c4bd99906373"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "patients_vaccinated"
+          },
+          "exits": [
+            {
+              "uuid": "809c1ee7-c7a0-4d10-b885-70262670f50e",
+              "destination_uuid": "eaa5e907-e8c6-4558-a0ed-94f6ecc1990d"
+            },
+            {
+              "uuid": "0c9622dd-14bc-426b-81b1-c4bd99906373",
+              "destination_uuid": "d5f21fa2-7867-45ab-8741-bb03ae797bd6"
+            }
+          ]
+        },
+        {
+          "uuid": "eaa5e907-e8c6-4558-a0ed-94f6ecc1990d",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "Thank you. You reported:\nAll health workers vaccinated: @results.workers_vaccinated.category\nReceived vaccines for patients: @results.patient_vacc_received.category\nPatients vaccinated this week: @results.patients_vaccinated",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "a0ffe832-8503-4414-b208-6574085ab909"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "edfd8d79-438f-44dd-890b-4cdad67e5c44",
+              "destination_uuid": null
             }
           ]
         }
       ],
       "_ui": {
         "nodes": {
-          "8dc74044-519d-4117-badb-59921b33afaf": {
+          "fd0b9092-e74f-4665-b718-8ace6f3e3364": {
             "position": {
-              "left": 140,
+              "left": 0,
               "top": 0
             },
             "type": "execute_actions"
           },
-          "bc7d3db9-e1f4-4b35-97e9-e7417c0f2723": {
+          "7212596a-cd1c-4cc5-b2cd-370798d1605e": {
             "type": "wait_for_response",
             "position": {
-              "left": 140,
-              "top": 140
+              "left": 80,
+              "top": 280
             },
             "config": {
               "cases": {}
             }
           },
-          "19481505-d31e-4d85-a3ca-ea09fe997f8a": {
+          "71a469c3-4fdd-4b8f-b326-eb458e38a88d": {
             "position": {
-              "left": 420,
-              "top": 180
+              "left": 380,
+              "top": 280
             },
             "type": "execute_actions"
           },
-          "acf0d621-658e-42e1-93b7-592147453a39": {
+          "cd679dc2-9ae0-49fe-8e76-1181aabef601": {
             "type": "wait_for_response",
             "position": {
-              "left": 420,
-              "top": 320
+              "left": 380,
+              "top": 460
             },
             "config": {
               "cases": {}
             }
           },
-          "d4bceb25-fb1a-4d4e-b094-10ed63b5954b": {
+          "623bd034-8bc5-443b-a19e-1feed5f43d7f": {
             "position": {
-              "left": 620,
+              "left": 100,
               "top": 480
             },
             "type": "execute_actions"
           },
-          "6399d220-a4f8-4274-8224-a8a31aa3c36d": {
+          "31db4ca1-8726-425a-829d-aeddd567f02c": {
             "type": "wait_for_response",
             "position": {
-              "left": 620,
-              "top": 640
+              "left": 180,
+              "top": 720
             },
             "config": {
               "cases": {}
             }
           },
-          "f2b80452-4b6f-4ebd-b8b8-96fe28b40a98": {
+          "d1ddcfa7-2530-4c50-8468-69e6c48b5b49": {
             "position": {
-              "left": 1020,
-              "top": 540
+              "left": 480,
+              "top": 720
+            },
+            "type": "execute_actions"
+          },
+          "358be946-177f-4c08-b423-9d91e1fe4994": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 500,
+              "top": 900
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "d5f21fa2-7867-45ab-8741-bb03ae797bd6": {
+            "position": {
+              "left": 260,
+              "top": 1040
+            },
+            "type": "execute_actions"
+          },
+          "2d3f2c7e-98ca-4612-bbff-0d36e572074e": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 240,
+              "top": 1200
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "eaa5e907-e8c6-4558-a0ed-94f6ecc1990d": {
+            "position": {
+              "left": 460,
+              "top": 1440
             },
             "type": "execute_actions"
           }
         }
       },
-      "revision": 76,
+      "revision": 56,
       "expire_after_minutes": 10080,
       "metadata": {
         "expires": 10080
