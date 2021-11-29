@@ -6,6 +6,8 @@
 
 This is the mHero flows library and implementation guide.
 
+The draft IG is published at: https://intrahealth.github.io/mhero-flows
+
 ## Workflow Status
 
 All builds should pass. The status badges show the outcomes from the GitHub Actions directly from GitHub.
