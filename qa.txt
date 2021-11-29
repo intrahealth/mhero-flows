@@ -1,0 +1,38 @@
+﻿mheroflows : Validation Results
+=========================================
+
+err = 4, warn = 4, info = 0
+IG Publisher Version: 1.1.89
+Generated Mon Nov 29 18:29:59 UTC 2021. FHIR version 4.0.1 for mhero.flows#0.0.1 (canonical = https://intrahealth.github.io/mhero-flows)
+ Build Errors : 16 / 2 / 0
+ /github/workspace/fsh-generated/resources/ImplementationGuide-mhero.flows : 3 / 1 / 1
+ /github/workspace/fsh-generated/resources/Questionnaire-demographics : 0 / 0 / 1
+ /github/workspace/fsh-generated/resources/QuestionnaireResponse-Example-QuestionnaireResponse : 0 / 1 / 1
+</table>
+== n/a ==
+ERROR: ImplementationGuide.definition.parameter[22].value: Supressed messages file not found
+WARNING: ImplementationGuide.url: The canonical URL for an Implementation Guide must point directly to the implementation guide resource, not to the Implementation Guide as a whole
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource QuestionnaireResponse/Example-QuestionnaireResponse.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+ERROR: /github/workspace/output/Questionnaire-demographics.change.history.html#/html/body/div/div/div/p/a at Line 216, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/Questionnaire-demographics.html#/html/body/div/div/div/p/a at Line 213, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/Questionnaire-demographics.json.html#/html/body/div/div/div/p/a at Line 488, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/Questionnaire-demographics.ttl.html#/html/body/div/div/div/p/a at Line 442, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/Questionnaire-demographics.xml.html#/html/body/div/div/div/p/a at Line 454, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/QuestionnaireResponse-Example-QuestionnaireResponse.change.history.html#/html/body/div/div/div/p/a at Line 216, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/QuestionnaireResponse-Example-QuestionnaireResponse.html#/html/body/div/div/div/p/a at Line 201, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/QuestionnaireResponse-Example-QuestionnaireResponse.json.html#/html/body/div/div/div/p/a at Line 290, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/QuestionnaireResponse-Example-QuestionnaireResponse.ttl.html#/html/body/div/div/div/p/a at Line 286, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/QuestionnaireResponse-Example-QuestionnaireResponse.xml.html#/html/body/div/div/div/p/a at Line 272, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/artifacts.html#/html/body/div/div/div/p/a at Line 198, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/index.html#/html/body/div/div/div/div/div/ul/li/p/a at Line 217, column 9: The link 'development.html' for "Development" cannot be resolved
+ERROR: /github/workspace/output/index.html#/html/body/div/div/div/p/a at Line 254, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/quickstart.html#/html/body/div/div/div/p/a at Line 241, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/toc.html#/html/body/div/div/div/p/a at Line 152, column 19: The link 'license.html' for "" cannot be resolved
+== fsh-generated/resources/ImplementationGuide-mhero.flows.json ==
+ERROR: ImplementationGuide.where(url = 'https://intrahealth.github.io/mhero-flows'): Conformance resource /github/workspace/fsh-generated/resources/ImplementationGuide-mhero.flows.json - the canonical URL (https://intrahealth.github.io/mhero-flows/ImplementationGuide/mhero.flows) does not match the URL (https://intrahealth.github.io/mhero-flows)
+ERROR: ImplementationGuide.url: Resource id/url mismatch: mhero.flows/https://intrahealth.github.io/mhero-flows
+WARNING: ImplementationGuide/mhero.flows: ImplementationGuide: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation' Rule 'Name should be usable as an identifier for the module by machine processing applications such as code generation' Failed
+ERROR: /github/workspace/fsh-generated/resources/ImplementationGuide-mhero.flows: URL Mismatch https://intrahealth.github.io/mhero-flows/ImplementationGuide/mhero.flows vs https://intrahealth.github.io/mhero-flows
+== fsh-generated/resources/Questionnaire-demographics.json ==
+== fsh-generated/resources/QuestionnaireResponse-Example-QuestionnaireResponse.json ==
+WARNING: QuestionnaireResponse/Example-QuestionnaireResponse: QuestionnaireResponse.item[0]: No response answer found for required item 'relative.relationship'
