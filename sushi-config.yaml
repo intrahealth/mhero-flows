@@ -137,12 +137,8 @@ dependencies:
 pages:
   index.md:
     title: "mHero Flows Library and FHIR Interoperability Framework"
-  fakedata.md:
-    title: "Creating and Using Fake Data"
   quickstart.md:
     title: "Getting Up and Running"
-  development.md:
-    title: "Run and Develop Locally"
 
 #  implementation.xml:
 #  examples.xml:
@@ -174,8 +170,6 @@ pages:
 menu:
   Home: index.html
   Quick Start: quickstart.html
-  Fake Data: fakedata.html
-  Development: development.html
 
 #  Artifacts:
 #    Profiles: artifacts.html#2
