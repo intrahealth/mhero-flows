@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<QuestionnaireResponse xmlns="http://hl7.org/fhir">
+  <id value="Example-QuestionnaireResponse"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "Example-QuestionnaireResponse" </p></div><p><b>questionnaire</b>: <a href="http://hl7.org/fhir/uv/sdc/Questionnaire/demographics">http://hl7.org/fhir/uv/sdc/Questionnaire/demographics</a></p><p><b>status</b>: in-progress</p><blockquote><p><b>item</b></p><p><b>linkId</b>: patient.id</p><p><b>text</b>: (internal use)</p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: patient.birthDate</p><p><b>text</b>: Date of birth</p><h3>Answers</h3><table class="grid"><tr><td>-</td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>1935-01-08</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: patient.name</p><p><b>text</b>: Name(s)</p><blockquote><p><b>item</b></p><p><b>linkId</b>: patient.name.family</p><p><b>text</b>: Family name</p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: patient.name.given</p><p><b>text</b>: Given name(s)</p></blockquote></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: relative</p><p><b>text</b>: Relatives, caregivers and other personal relationships</p><blockquote><p><b>item</b></p><p><b>linkId</b>: relative.id</p><p><b>text</b>: (internal use)</p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: relative.relationship</p><p><b>text</b>: Name(s)</p></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: relative.name</p><p><b>text</b>: Name(s)</p></blockquote></blockquote></div>
+  </text>
+  <questionnaire value="http://hl7.org/fhir/uv/sdc/Questionnaire/demographics"/>
+  <status value="in-progress"/>
+  <item>
+    <linkId value="patient.id"/>
+    <text value="(internal use)"/>
+  </item>
+  <item>
+    <linkId value="patient.birthDate"/>
+    <text value="Date of birth"/>
+    <answer>
+      <valueDate value="1935-01-08"/>
+    </answer>
+  </item>
+  <item>
+    <linkId value="patient.name"/>
+    <text value="Name(s)"/>
+    <item>
+      <linkId value="patient.name.family"/>
+      <text value="Family name"/>
+      <answer>
+        <valueString value="Presley"/>
+      </answer>
+    </item>
+    <item>
+      <linkId value="patient.name.given"/>
+      <text value="Given name(s)"/>
+      <answer>
+        <valueString value="Elvis"/>
+      </answer>
+    </item>
+  </item>
+  <item>
+    <linkId value="relative"/>
+    <text value="Relatives, caregivers and other personal relationships"/>
+    <item>
+      <linkId value="relative.id"/>
+      <text value="(internal use)"/>
+    </item>
+    <item>
+      <linkId value="relative.relationship"/>
+      <text value="Name(s)"/>
+    </item>
+    <item>
+      <linkId value="relative.name"/>
+      <text value="Name(s)"/>
+      <item>
+        <linkId value="relative.name.family"/>
+        <text value="Family name"/>
+        <answer>
+          <valueString value="Presley"/>
+        </answer>
+      </item>
+      <item>
+        <linkId value="relative.name.given"/>
+        <text value="Given name(s)"/>
+        <answer>
+          <valueString value="Priscilla"/>
+        </answer>
+      </item>
+    </item>
+  </item>
+</QuestionnaireResponse>
