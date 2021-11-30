@@ -336,8 +336,23 @@
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 1;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "quickstart.html" ];
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Getting Up and Running" ];
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "usecases.html" ];
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Supported Use Cases" ];
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 2;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "practitioners.html" ];
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Synchronizing Contacts to FHIR Practitioners" ];
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 3;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "data.html" ];
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "FHIR Data and Short Messaging Flows" ];
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 4;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "languages.html" ];
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Flows in Multiple Languages" ];
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ]
      ];

@@ -232,8 +232,23 @@
         <generation value="markdown"/>
       </page>
       <page>
-        <nameUrl value="quickstart.html"/>
-        <title value="Getting Up and Running"/>
+        <nameUrl value="usecases.html"/>
+        <title value="Supported Use Cases"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="practitioners.html"/>
+        <title value="Synchronizing Contacts to FHIR Practitioners"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="data.html"/>
+        <title value="FHIR Data and Short Messaging Flows"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <nameUrl value="languages.html"/>
+        <title value="Flows in Multiple Languages"/>
         <generation value="markdown"/>
       </page>
     </page>

@@ -1,9 +1,9 @@
-﻿<!-- layouts\layout-changehistory.html --><!-- get modelType --><?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE HTML>
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>MHERO.FLOWS\ - FHIR v4.0.1</title>
+    <title>MHERO.FLOWS\Supported Use Cases - FHIR v4.0.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -42,8 +42,8 @@
 
 	  <script src="assets/js/prism.js"></script>
 
-    <style type="text/css">h2{--heading-prefix:""}
-    h3,h4,h5,h6{--heading-prefix:""}</style>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
     <div id="segment-header" class="segment">    <!-- segment-header -->
       <div class="container">    <!-- container -->
           <!-- Placeholder for child template header declarations -->
@@ -104,7 +104,7 @@
     <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
       <div class="container">    <!-- container -->
         <ul class="breadcrumb">
-          
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Supported Use Cases</b></li>
 
         </ul>
       </div>    <!-- /container -->
@@ -116,9 +116,16 @@
         <div class="row">
           <div class="inner-wrapper">
 
-
-<div style="counter-reset: section 10" class="col-12">
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
     <!-- ReleaseHeader --><p id="publish-box">mHero Flows Library and FHIR Interoperability Framework - Local Development build (v0.0.1). See the <a href="https://intrahealth.github.io/mhero-flows/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>Supported Use Cases</h2>
   
 
 
@@ -126,46 +133,95 @@
 
 
 
-<ul class="nav nav-tabs">
-
-  <li>
-    <a href="Questionnaire-demographics.html">Narrative Content</a>
-  </li>
-
-
-  
-    <li>
-      <a href="Questionnaire-demographics.xml.html">XML</a>
-    </li>
-  
-
-
-  
-    <li>
-      <a href="Questionnaire-demographics.json.html">JSON</a>
-    </li>
-  
-
-
-  
-    <li>
-      <a href="Questionnaire-demographics.ttl.html">TTL</a>
-    </li>
-  
 
 
 
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#supported-use-cases" id="markdown-toc-supported-use-cases">Supported Use Cases</a></li>
+  <li><a href="#methodology-and-workflows" id="markdown-toc-methodology-and-workflows">Methodology and Workflows</a></li>
 </ul>
 
+</div>
+<h3 id="supported-use-cases">Supported Use Cases</h3>
 
-  <a name="root"> </a>
-  <h2 id="root">: DemographicExample - Change History</h2>
-  <p>History of changes for demographics .</p>
+<table>
+  <thead>
+    <tr>
+      <th><strong>Use Case</strong></th>
+      <th><strong>FHIR Resources</strong></th>
+      <th>Methodology/Workflow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sync health worker contacts between RapidPro and a health worker registry</td>
+      <td>Practitioner, Location</td>
+      <td>mHero two-way syncs contacts (and groups) with RapidPro.</td>
+    </tr>
+    <tr>
+      <td>Weekly reporting reminder to facility leads</td>
+      <td>Practitioner, Location, Communication</td>
+      <td>Sync as above. One-way messages are stored in FHIR as Communication.</td>
+    </tr>
+    <tr>
+      <td>Broadcast one-way messages to CHWs from a point-of-service system</td>
+      <td>Practitioner, Location, Communication</td>
+      <td>POS system syncs contacts with the health worker registry. If required, one-way messages are stored in FHIR as Communication.</td>
+    </tr>
+    <tr>
+      <td>Facility report on staff and patients vaccinated</td>
+      <td>Practitioner, Location</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Aggregate report on COVID-19 hospitalizations</td>
+      <td>Practitioner, Location</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Health workers register to do reporting via SMS/WhatsApp</td>
+      <td>Practitioner, PractitionerRole, Questionnaire, QuestionnaireResponse</td>
+      <td>The Practitioner and PractitionerRole responses from a Questionnaire and QuestionnaireResponse are converted from FLOIP/RapidPro.</td>
+    </tr>
+    <tr>
+      <td>Health workers self-report on vaccination status and stocks</td>
+      <td>Patient, Immunization, Practitioner, Questionnaire, QuestionnaireResponse</td>
+      <td>Practitioner is both Practitioner and Patient for immunization recording purposes. A single resource for Immunization is extracted from a Questionnaire and QuestionnaireResponse converted from FLOIP/RapidPro. <strong>Optional</strong>: Location, Organization, Encounter, etc</td>
+    </tr>
+    <tr>
+      <td>Patient Case Report Form for COVID-19</td>
+      <td>Practitioner, Location, Patient, Encounter, DiagnosticResult, Observation</td>
+      <td>Practitioner reports on Patient resource, and adds summary information about COVID-19 test results in Encounter, DiagnosticResult, Observation.</td>
+    </tr>
+  </tbody>
+</table>
 
-  
+<h3 id="methodology-and-workflows">Methodology and Workflows</h3>
+
+<p>TBD</p>
+
+<p><strong>Sync health worker contacts between RapidPro and a health worker registry</strong></p>
+
+<p><strong>Weekly reporting reminder to facility leads</strong></p>
+
+<p><strong>Broadcast one-way messages to CHWs from a point-of-service system</strong></p>
+
+<p><strong>Facility report on staff and patients vaccinated</strong></p>
+
+<p><strong>Aggregate report on COVID-19 hospitalizations</strong></p>
+
+<p><strong>Health workers register to do reporting via SMS/WhatsApp</strong></p>
+
+<p><strong>Health workers self-report on vaccination status and stocks</strong></p>
+
+<p><strong>Patient Case Report Form for COVID-19</strong></p>
+
+
+
 
 </div>
-
         </div>    <!-- /inner-wrapper -->
       </div>    <!-- /row -->
     </div>    <!-- /container -->
@@ -173,29 +229,6 @@
 
   <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
   <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
-
-  <script type="text/javascript">
-    try {
-      var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
-    } catch(exception) {
-    }
-
-    if (!currentTabIndex)
-      currentTabIndex = '0';
-
-    $( '#tabs' ).tabs({
-      active: currentTabIndex,
-      activate: function( event, ui ) {
-        var active = $('.selector').tabs('option', 'active');
-        currentTabIndex = ui.newTab.index();
-        document.activeElement.blur();
-        try {
-          sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
-        } catch(exception) {
-        }
-      }
-    });
-  </script>
 
   <script type="text/javascript">
     $(document).ready(function(){
@@ -209,7 +242,7 @@
     <div class="container">    <!-- container -->
 
       <div class="inner-wrapper">
-        <p><a name="l307">​</a>
+        <p><a name="l460">​</a>
           IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Nov 30, 2021 20:47+0000">2021-11-30</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
