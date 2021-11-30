@@ -352,8 +352,23 @@
           "generation": "markdown"
         },
         {
-          "nameUrl": "quickstart.html",
-          "title": "Getting Up and Running",
+          "nameUrl": "usecases.html",
+          "title": "Supported Use Cases",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "practitioners.html",
+          "title": "Synchronizing Contacts to FHIR Practitioners",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "data.html",
+          "title": "FHIR Data and Short Messaging Flows",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "languages.html",
+          "title": "Flows in Multiple Languages",
           "generation": "markdown"
         }
       ]

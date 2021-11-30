@@ -3,7 +3,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>MHERO.FLOWS\Getting Up and Running - FHIR v4.0.1</title>
+    <title>MHERO.FLOWS\Flows in Multiple Languages - FHIR v4.0.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -42,8 +42,8 @@
 
 	  <script src="assets/js/prism.js"></script>
 
-    <style type="text/css">h2{--heading-prefix:"2"}
-    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
     <div id="segment-header" class="segment">    <!-- segment-header -->
       <div class="container">    <!-- container -->
           <!-- Placeholder for child template header declarations -->
@@ -81,7 +81,16 @@
     <a href="index.html">Home</a>
   </li>
   <li>
-    <a href="quickstart.html">Quick Start</a>
+    <a href="usecases.html">Supported Use Cases</a>
+  </li>
+  <li>
+    <a href="practitioners.html">Synchronizing Contacts to FHIR Practitioners</a>
+  </li>
+  <li>
+    <a href="data.html">FHIR Data and Short Messaging Flows</a>
+  </li>
+  <li>
+    <a href="languages.html">Flows in Multiple Languages</a>
   </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
@@ -95,7 +104,7 @@
     <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
       <div class="container">    <!-- container -->
         <ul class="breadcrumb">
-          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Getting Up and Running</b></li>
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Flows in Multiple Languages</b></li>
 
         </ul>
       </div>    <!-- /container -->
@@ -116,7 +125,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </style>
 <div class="col-12">
     <!-- ReleaseHeader --><p id="publish-box">mHero Flows Library and FHIR Interoperability Framework - Local Development build (v0.0.1). See the <a href="https://intrahealth.github.io/mhero-flows/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
-  <h2>Getting Up and Running</h2>
+  <h2>Flows in Multiple Languages</h2>
   
 
 
@@ -131,79 +140,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div>
   <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown. -->
 </div>
-<p>This page documents the test steps for the mHero Flows Library and FHIR Interoperability Framework (mhero-flows) IG and also and emphasizes the methodology for new learners about using FHIR-oriented artifacts with short messaging systems.</p>
-
-<blockquote>
-  <p>Where paths in the repository start with a slash (/), what is meant is the root of the repository, not the filesystem.</p>
-</blockquote>
-
-<h2 id="rapidpro-contacts-to-fhir-practitioners-conversion">Rapidpro Contacts to FHIR Practitioners Conversion</h2>
-
-<p>mHero has a method called syncContacts which is scheduled to run and synchronize contacts between Rapidpro and mHero. mHero does below steps to achieve this:</p>
-
-<ul>
-  <li>Pulls all FHIR Practitioners.</li>
-  <li>Pulls all Rapidpro contacts.</li>
-  <li>Loop through each FHIR Practitioner and create a Rapidpro add contact request that includes a field specifying the entity type I.e Practitioner, Patient e.t.c and entity ID which is the FHIR Practitioner ID, and then makes a post request to rapidpro to create a Practitioner as a contact in Rapidpro. The respective Rapidpro contact uuid is also added to the corresponding FHIR Practitioner as an Identifier with system being “http://app.rapidpro.io/contact-uuid” and the value being the contact uuid and then a Practitioner get updated as well.</li>
-  <li>mHero also checks if two way synchronization is enabled, if it is enabled then it loops through all the rapidpro contacts to see any contact that is in rapidpro and missing in mHero,  if it finds any then it converts that Rapidpro contact to a FHIR Practitioner with the Rapidpro contact uuid being added as an identifier to the FHIR Practitioner then a Practitioner is saved into FHIR server. The respective FHIR Practitioner ID and entity types are also added back to the corresponding Rapidpro contact as fields and the Rapidpro gets updated with these changes on the contact.</li>
-</ul>
-
-<h2 id="rapidpro-flow-results-to-fhir-questionnaire-responses-conversion">Rapidpro Flow Results to FHIR Questionnaire Responses Conversion</h2>
-
-<p>mHero has a method called syncWorkflowRunMessages that is scheduled to pull rapidpro flow results and convert them to Communications and Questionnaire Responses.</p>
-
-<ul>
-  <li>mHero starts by pulling Rapidpro flow results using the Rapidpro runs.json endpoint. mHero loops through each run, and for each run mHero gets flow Definition for a respective flow run to help with decoding a flow results.</li>
-  <li>mHero also queries FHIR server to get a Practitioner involved in the flow run using the Rapidpro contact uuid.</li>
-  <li>Finally, mHero converts a flow result to a Questionnaire Response. Since rapidpro flow results doesn’t have results data types, then everything is treated as a string inside the Questionnaire Response. mHero uses Rapidpro flow run uuid as the Questionnaire Response ID.</li>
-</ul>
-
-<h2 id="methodology-and-workflows">Methodology and Workflows</h2>
-
-<p>TBD</p>
-
-<p><strong>Sync health worker contacts between RapidPro and a health worker registry</strong></p>
-
-<p><strong>Weekly reporting reminder to facility leads</strong></p>
-
-<p><strong>Broadcast one-way messages to CHWs from a point-of-service system</strong></p>
-
-<p><strong>Facility report on staff and patients vaccinated</strong></p>
-
-<p><strong>Aggregate report on COVID-19 hospitalizations</strong></p>
-
-<p><strong>Health workers register to do reporting via SMS/WhatsApp</strong></p>
-
-<p><strong>Health workers self-report on vaccination status and stocks</strong></p>
-
-<p><strong>Patient Case Report Form for COVID-19</strong></p>
-
-<h2 id="workflow-status">Workflow Status</h2>
-
-<p>All builds should pass. The status badges show the outcomes from the GitHub Actions directly from GitHub.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Outcome</strong></th>
-      <th><strong>Workflow</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="https://github.com/intrahealth/mhero-flows/workflows/build_fsh/badge.svg" alt="build ig"/></td>
-      <td>Build FSH using Sushi</td>
-    </tr>
-    <tr>
-      <td><img src="https://github.com/intrahealth/mhero-flows/workflows/build_fsh/badge.svg" alt="build ddcc fsh"/></td>
-      <td>Build FSH using Sushi</td>
-    </tr>
-    <tr>
-      <td><img src="https://github.com/intrahealth/mhero-flows/workflows/build_ig/badge.svg" alt="build ddcc ig"/></td>
-      <td>Build IG using Publisher</td>
-    </tr>
-  </tbody>
-</table>
+<h3 id="flows-in-multiple-languages">Flows in Multiple Languages</h3>
 
 
 
@@ -229,8 +166,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <div class="container">    <!-- container -->
 
       <div class="inner-wrapper">
-        <p><a name="l409">​</a>
-          IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Nov 29, 2021 18:43+0000">2021-11-29</span>
+        <p><a name="l291">​</a>
+          IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Nov 30, 2021 20:47+0000">2021-11-30</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
