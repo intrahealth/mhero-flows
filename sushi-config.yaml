@@ -137,8 +137,16 @@ dependencies:
 pages:
   index.md:
     title: "mHero Flows Library and FHIR Interoperability Framework"
-  quickstart.md:
-    title: "Getting Up and Running"
+  # quickstart.md:
+  #   title: "Getting Up and Running"
+  usecases.md:
+    title: "Supported Use Cases"
+  practitioners.md:
+    title: "Synchronizing Contacts to FHIR Practitioners"
+  data.md:
+    title: "FHIR Data and Short Messaging Flows"
+  languages.md:
+    title: "Flows in Multiple Languages"
 
 #  implementation.xml:
 #  examples.xml:
@@ -169,7 +177,11 @@ pages:
 # include a `menu.xml` file in input/includes.
 menu:
   Home: index.html
-  Quick Start: quickstart.html
+  # Quick Start: quickstart.html
+  Supported Use Cases: usecases.html
+  Synchronizing Contacts to FHIR Practitioners: practitioners.html
+  FHIR Data and Short Messaging Flows: data.html
+  Flows in Multiple Languages: languages.html
 
 #  Artifacts:
 #    Profiles: artifacts.html#2

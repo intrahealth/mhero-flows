@@ -1,37 +1,31 @@
-<!-- ### mHero Flows Library and FHIR Interoperability Framework (mhero-flows) -->
+### mHero Flows Library and FHIR Interoperability Framework (mhero-flows)
 
-<!-- <br/><br/>
+<br/><br/>
 <img src="mherlogo.png" class="center" width="350">
-<br/><br/> -->
-
-### Objectives
+<br/><br/>
 
 This Implementation Guide (IG) demonstrates a prototypical framework for working with mHero and it's FHIR backend and short messages in FLOIP or RapidPro format.
 
-The tooling is meant to provide a basis to understand the reference tooling and how to test their own profiled mHero workflows.
+The tooling is meant to provide a basis to understand the reference tooling and how to test their own profiled mHero workflows. In this draft status, this tooling does not contain conformance resources. It only contains documentation and tooling.
 
-### Use Cases
+Comments are welcome. Please submit a [GitHub Issue](https://github.com/intrahealth/mhero-flows/issues/new/choose).
 
-| **Use Case** | **FHIR Resources** | Methodology/Workflow |
-| --- | --- | --- |
-| Sync health worker contacts between RapidPro and a health worker registry | Practitioner, Location, Organization | mHero two-way syncs contacts (and groups) with RapidPro. |
-| Weekly reporting reminder to facility leads | Practitioner, Location, CommunicationRequest | Sync as above. One-way messages are stored in FHIR as CommunicationRequest. |
-| Broadcast one-way messages to CHWs from a point-of-service system | Practitioner, Location, CommunicationRequest | POS system syncs contacts with the health worker registry. If required, one-way messages are stored in FHIR as CommunicationRequest.
-| Facility report on staff and patients vaccinated | Practitioner, Location | Definition-based extraction.
-| Aggregate report on COVID-19 hospitalizations | Practitioner, Location | Definition-based extraction. |
-| Health workers register to do reporting via SMS/WhatsApp | Practitioner, PractitionerRole, Questionnaire, QuestionnaireResponse | The Practitioner and PractitionerRole responses from a Questionnaire and QuestionnaireResponse are converted from FLOIP/RapidPro. |
-| Health workers self-report on vaccination status and stocks | Patient, Immunization, Practitioner, Questionnaire, QuestionnaireResponse, **Optional**: Location, Organization, Encounter, etc | Practitioner is both Practitioner and Patient for immunization recording purposes. A single resource for Immunization is extracted from a Questionnaire and QuestionnaireResponse converted from FLOIP/RapidPro. Definition-based extraction?
-| Patient Case Report Form for COVID-19 | Practitioner, Location, Patient, Encounter, DiagnosticResult, Observation | Practitioner reports on Patient resource, and adds summary information about COVID-19 test results in Encounter, DiagnosticResult, Observation. Definition-based extraction? |
+### Introduction
 
-### Non-conformance
+[mHero](https://www.mhero.org) is a two-way, mobile phone-based communication system that connects ministries of health and health workers. It uses data from existing local health information systems to deliver messages via locally popular communication channels. It reduces the barriers that can exist between health workers and their support systems, playing a critical role in ensuring effective and efficient responses, particularly in a crisis.
 
-This tooling does not contain conformance resources. It only contains documentation and tooling although it is formatted using an FHIR Implementation Guide template. This is only for constitency as those that are familiar with FHIR IGs may find navigation more familiar.
+Health officials can use mHero to:
+* **Communicate** both routine and urgent messages to health workers. 
+* **Target messages** to health workers based on cadre, location, or skill set. 
+* **Collect critical information** that powers resilient health systems, including stock levels, routine and one-time assessments, and validation of health worker and facility data.
+* **Build capacity** and **provide support** to health workers, to give them the information, skills, and encouragement to deliver quality health services.
+ 
+**mHero is not a new technology.** Instead, it is a new way to connect data from existing technologies to allow for targeted, real-time communication. It does so by using global interoperability standards for health information exchange. In other words, mHero can help platforms speak in a common language and easily share data.
 
-### How to Use the Tooling and Testing Framwork
+[IntraHealth International](https://www.intrahealth.org) and [UNICEF](https://www.unicef.org) created mHero in August 2014 to support health-sector communication during the Ebola outbreak in Liberia. The original version of mHero connected Liberia's health workforce information system, [iHRIS](https://www.ihris.org), with [RapidPro](https://app.rapidpro.io), a platform that delivers basic text and audio messages. The use of RapidPro made it possible to reach most Liberian frontline health workers using only basic mobile phones.
 
-* [**Quick Start**](quickstart.html): This is the starting point to using the tooling using the provided artifacts. This describes the included GitHub Actions which are reusable and should run in any GitHub repository.
+Since the end of the Ebola crisis, the Ministry of Health and Social Welfare in Liberia has integrated the platform into its health information system infrastructure to meet ongoing communication needs for various health services. Several other countries have also tested or deployed mHero, including for COVID-19 response purposes.
 
-* [**Development**](development.html): This is for those that wish to customize and run tests locally.
+The technology behind mHero has also evolved since the initial deployment in Liberia. Both advancements in technology, as well as varying conditions and needs in other countries, inspired IntraHealth to make mHero more interoperable. It can operate with other communication platforms and any health information systems compliant with the global Fast Healthcare Interoperability Resources (FHIR) standards.
 
-
-
+mHero’s origin and ongoing use and development illustrate how the platform is **flexible**, **scalable**, and **sustainable** by governments in low- and middle-income countries.
