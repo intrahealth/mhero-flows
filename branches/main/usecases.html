@@ -87,7 +87,13 @@
     <a href="practitioners.html">Synchronizing Contacts to FHIR Practitioners</a>
   </li>
   <li>
-    <a href="data.html">FHIR Data and Short Messaging Flows</a>
+    <a href="data.html">mHero flows to FHIR</a>
+  </li>
+  <li>
+    <a href="floip2rpro.html">RapidPro to FLOIP</a>
+  </li>
+  <li>
+    <a href="floip2fhir.html">FLOIP to FHIR</a>
   </li>
   <li>
     <a href="languages.html">Flows in Multiple Languages</a>
@@ -139,119 +145,112 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <p>  <!-- white space is critical inside of capture --></p>
 <div class="markdown-toc">
 <ul id="markdown-toc">
+  <li><a href="#use-cases" id="markdown-toc-use-cases">Use Cases</a></li>
   <li><a href="#supported-use-cases" id="markdown-toc-supported-use-cases">Supported Use Cases</a></li>
-  <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
-  <li><a href="#unsupported" id="markdown-toc-unsupported">Unsupported</a></li>
-  <li><a href="#advanced-methodology-and-workflows" id="markdown-toc-advanced-methodology-and-workflows">Advanced Methodology and Workflows</a></li>
+  <li><a href="#provided-examples" id="markdown-toc-provided-examples">Provided Examples</a></li>
+  <li><a href="#how-mhero-stores-content-in-fhir" id="markdown-toc-how-mhero-stores-content-in-fhir">How mHero Stores Content in FHIR</a></li>
+  <li><a href="#advanced--structured-data-capture" id="markdown-toc-advanced--structured-data-capture">Advanced – Structured Data Capture</a></li>
 </ul>
 
 </div>
-<h3 id="supported-use-cases">Supported Use Cases</h3>
+<h3 id="use-cases">Use Cases</h3>
 
-<p>As a vital communications and health worker registry platform. mHero is used across diverse use cases to communicate both routine and urgent messages to health workers; target messages** to health workers based on cadre, location, or skill set; collect critical information that powers resilient health systems; and build capacity and provide support.</p>
+<p>As a vital communications and health worker registry platform. mHero is used across diverse use cases to communicate both routine and urgent messages to health workers; target messages to health workers based on cadre, location, or skill set; collect critical information that powers resilient health systems; and build capacity and provide support.</p>
 
 <p>Current mHero provides the ability to</p>
 <ul>
   <li>Convert RapidPro contacts into FHIR Practitioner resources, and</li>
   <li>Perform one-way or two-way sychronization, and</li>
-  <li>Convert RapidPro flow runs into Questionnaire Responses.</li>
+  <li>Convert RapidPro flow runs into FHIR Questionnaires and Questionnaire Responses.</li>
+</ul>
+
+<p>There are additional command line utilities to:</p>
+<ul>
+  <li>Convert RapidPro flows to FLOIP flows.</li>
+  <li>Convert FLOIP flows to FHIR Questionnaires and QuestionnaireResponses.</li>
 </ul>
 
 <p>This means that mHero has built-in features to accomplish several use cases.</p>
 
+<h3 id="supported-use-cases">Supported Use Cases</h3>
+
 <table>
   <thead>
     <tr>
-      <th><strong>Use Case</strong></th>
-      <th><strong>FHIR Resources</strong></th>
-      <th>Methodology/Workflow</th>
+      <th><strong>Prototypical Use Case</strong></th>
+      <th><strong>Status</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Sync health worker contacts between RapidPro and a health worker registry</td>
-      <td>Practitioner, Location</td>
-      <td>mHero two-way syncs contacts (and groups) with RapidPro.</td>
+      <td>Capability built-into mHero. Settings enable one-way or two-way sync.</td>
     </tr>
     <tr>
       <td>Weekly reporting reminder to facility leads</td>
-      <td>Practitioner, Location, Communication</td>
-      <td>One-way messages are stored in FHIR as Communication.</td>
+      <td>Capability built-into mHero. Flow must be authored in FLOIP/RapidPro.</td>
     </tr>
     <tr>
       <td>Broadcast one-way messages to CHWs from a point-of-service system</td>
-      <td>Practitioner, Location, Communication</td>
-      <td>POS system syncs contacts with the health worker registry.</td>
+      <td>API is available. Requires integration of the POS with mHero.</td>
     </tr>
     <tr>
       <td>Facility report on staff and patients vaccinated</td>
-      <td>Practitioner, Location</td>
-      <td>&nbsp;</td>
+      <td>A demo flow is provided.</td>
     </tr>
     <tr>
       <td>Aggregate report on COVID-19 hospitalizations</td>
-      <td>Practitioner, Location</td>
-      <td>&nbsp;</td>
+      <td>A demo flow is provided.</td>
     </tr>
     <tr>
       <td>Health workers register to do reporting via SMS/WhatsApp</td>
-      <td>Practitioner, PractitionerRole,  QuestionnaireResponse</td>
-      <td>The Practitioner and PractitionerRole responses from a Questionnaire and QuestionnaireResponse are converted from FLOIP/RapidPro.</td>
+      <td>A demo flow is provided.</td>
     </tr>
     <tr>
       <td>Health workers self-report on vaccination status and stocks</td>
-      <td>Patient, Immunization, Practitioner,  QuestionnaireResponse</td>
-      <td>Practitioner is both Practitioner and Patient for immunization recording purposes.</td>
+      <td>A demo flow is provided.</td>
     </tr>
     <tr>
       <td>Patient Case Report Form for COVID-19</td>
-      <td>Practitioner, Location, Observation</td>
-      <td>Practitioner reports on Patient resource.</td>
+      <td>A demo flow is provided.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="examples">Examples</h3>
+<h3 id="provided-examples">Provided Examples</h3>
 
-<p>In the repository under /covid, there are examples FLOIP and RapidPro flows that address several of the above use cases.</p>
+<p>In the repository under /covid, there are examples FLOIP and RapidPro flows that address several of the above use cases. There are both FLOIP and RapidPro versions of the flows.</p>
 
-<h3 id="unsupported">Unsupported</h3>
+<h3 id="how-mhero-stores-content-in-fhir">How mHero Stores Content in FHIR</h3>
 
-<p>A single resource for Immunization is extracted from a Questionnaire and QuestionnaireResponse converted from FLOIP/RapidPro. <strong>Optional</strong>: Location, Organization, Encounter, etc</p>
+<ul>
+  <li>Health workers (contacts) in RapidPro and FLOIP are by default stored as Practitioners.</li>
+  <li>Flows are stored in FHIR as Questionnaires. Flow runs are stored as QuestionnaireResponses.</li>
+</ul>
 
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Use Case</strong></td>
-      <td><strong>FHIR Resources</strong></td>
-      <td>Methodology/Workflow</td>
-    </tr>
-  </tbody>
-</table>
+<h3 id="advanced--structured-data-capture">Advanced – Structured Data Capture</h3>
 
-<p>and adds summary information about COVID-19 test results in Encounter, DiagnosticResult, Observation.</p>
+<p>There is an Implementation Guide in the FHIR community that defines how to extract data in any resource to another type of resource. This is termed Structured Data Capture (SDC). There are <a href="http://build.fhir.org/ig/HL7/sdc/extraction.html">three mechanisms</a>:</p>
 
-<h3 id="advanced-methodology-and-workflows">Advanced Methodology and Workflows</h3>
-
-<p>The first step in communicating with health workers through mHero and FLOIP or RapidPro is to</p>
-
-<p>TBD</p>
-
-<p><strong>Sync health worker contacts between RapidPro and a health worker registry</strong></p>
-
-<p><strong>Weekly reporting reminder to facility leads</strong></p>
-
-<p><strong>Broadcast one-way messages to CHWs from a point-of-service system</strong></p>
-
-<p><strong>Facility report on staff and patients vaccinated</strong></p>
-
-<p><strong>Aggregate report on COVID-19 hospitalizations</strong></p>
-
-<p><strong>Health workers register to do reporting via SMS/WhatsApp</strong></p>
-
-<p><strong>Health workers self-report on vaccination status and stocks</strong></p>
-
-<p><strong>Patient Case Report Form for COVID-19</strong></p>
+<ul>
+  <li><strong>Observation-based</strong>
+    <ul>
+      <li>This process converts all QuestionnaireResponses to Observations. This is simple but does not convert to any base resources that would be used by an EHR or other system.</li>
+    </ul>
+  </li>
+  <li><strong>Definition-based</strong>: In this mechanism, either the Questionnaire or QuestionnaireResponses contains attributes for conversion.
+    <ul>
+      <li>This places the burden of conversion between resources types on the Questionnaire author. A demonstration copied from the SDC repository is provided.</li>
+      <li>Note that at the time of writing that this capability is not available in an open source API-based solution. (It is available in the Google Android FHIR SDK but this is not applicable to short messaging applications.) See: https://confluence.hl7.org/display/FHIRI/SDC+Implementations</li>
+    </ul>
+  </li>
+  <li><strong>Structure-map based</strong>
+    <ul>
+      <li>This is the most flexible but requires using the FHIR Mapping Language inside a StructureMap resource. * There is some support, for example from <a href="https://github.com/ahdis/matchbox">Matchbox</a>.</li>
+      <li>This is also the most complicated approach as it requires learning a new FHIR-oriented programming language. Questionnaires must be written for FHIR and then StructureMaps manually created in addition.</li>
+    </ul>
+  </li>
+</ul>
 
 
 
@@ -277,8 +276,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <div class="container">    <!-- container -->
 
       <div class="inner-wrapper">
-        <p><a name="l527">​</a>
-          IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Dec 1, 2021 15:01+0000">2021-12-01</span>
+        <p><a name="l524">​</a>
+          IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Dec 1, 2021 20:49+0000">2021-12-01</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |

@@ -363,7 +363,17 @@
         },
         {
           "nameUrl": "data.html",
-          "title": "FHIR Data and Short Messaging Flows",
+          "title": "mHero flows to FHIR",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "floip2rpro.html",
+          "title": "RapidPro to FLOIP",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "floip2fhir.html",
+          "title": "FLOIP to FHIR",
           "generation": "markdown"
         },
         {
