@@ -247,13 +247,8 @@
         <generation value="markdown"/>
       </page>
       <page>
-        <nameUrl value="floip2rpro.html"/>
-        <title value="RapidPro to FLOIP"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <nameUrl value="floip2fhir.html"/>
-        <title value="FLOIP to FHIR"/>
+        <nameUrl value="utilities.html"/>
+        <title value="Utilities"/>
         <generation value="markdown"/>
       </page>
       <page>
