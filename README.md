@@ -16,6 +16,5 @@ This is the mHero flows library and implementation guide.
 * [Use Cases](input/pagecontent/usecases.md)
 * [Practitioners](input/pagecontent/practitioners.md)
 * [mHero flows to FHIR](input/pagecontent/data.md)
-* [RapidPro to FLOIP](input/pagecontent/floip2rpro.md)
-* [FLOIP to FHIR](input/pagecontent/floip2fhir.md)
+* [Utilities](input/pagecontent/utilities.md)
 * [Flows in Multiple Languages](input/pagecontent/languages.md)
