@@ -140,11 +140,24 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#supported-use-cases" id="markdown-toc-supported-use-cases">Supported Use Cases</a></li>
-  <li><a href="#methodology-and-workflows" id="markdown-toc-methodology-and-workflows">Methodology and Workflows</a></li>
+  <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
+  <li><a href="#unsupported" id="markdown-toc-unsupported">Unsupported</a></li>
+  <li><a href="#advanced-methodology-and-workflows" id="markdown-toc-advanced-methodology-and-workflows">Advanced Methodology and Workflows</a></li>
 </ul>
 
 </div>
 <h3 id="supported-use-cases">Supported Use Cases</h3>
+
+<p>As a vital communications and health worker registry platform. mHero is used across diverse use cases to communicate both routine and urgent messages to health workers; target messages** to health workers based on cadre, location, or skill set; collect critical information that powers resilient health systems; and build capacity and provide support.</p>
+
+<p>Current mHero provides the ability to</p>
+<ul>
+  <li>Convert RapidPro contacts into FHIR Practitioner resources, and</li>
+  <li>Perform one-way or two-way sychronization, and</li>
+  <li>Convert RapidPro flow runs into Questionnaire Responses.</li>
+</ul>
+
+<p>This means that mHero has built-in features to accomplish several use cases.</p>
 
 <table>
   <thead>
@@ -163,12 +176,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td>Weekly reporting reminder to facility leads</td>
       <td>Practitioner, Location, Communication</td>
-      <td>Sync as above. One-way messages are stored in FHIR as Communication.</td>
+      <td>One-way messages are stored in FHIR as Communication.</td>
     </tr>
     <tr>
       <td>Broadcast one-way messages to CHWs from a point-of-service system</td>
       <td>Practitioner, Location, Communication</td>
-      <td>POS system syncs contacts with the health worker registry. If required, one-way messages are stored in FHIR as Communication.</td>
+      <td>POS system syncs contacts with the health worker registry.</td>
     </tr>
     <tr>
       <td>Facility report on staff and patients vaccinated</td>
@@ -182,23 +195,45 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td>Health workers register to do reporting via SMS/WhatsApp</td>
-      <td>Practitioner, PractitionerRole, Questionnaire, QuestionnaireResponse</td>
+      <td>Practitioner, PractitionerRole,  QuestionnaireResponse</td>
       <td>The Practitioner and PractitionerRole responses from a Questionnaire and QuestionnaireResponse are converted from FLOIP/RapidPro.</td>
     </tr>
     <tr>
       <td>Health workers self-report on vaccination status and stocks</td>
-      <td>Patient, Immunization, Practitioner, Questionnaire, QuestionnaireResponse</td>
-      <td>Practitioner is both Practitioner and Patient for immunization recording purposes. A single resource for Immunization is extracted from a Questionnaire and QuestionnaireResponse converted from FLOIP/RapidPro. <strong>Optional</strong>: Location, Organization, Encounter, etc</td>
+      <td>Patient, Immunization, Practitioner,  QuestionnaireResponse</td>
+      <td>Practitioner is both Practitioner and Patient for immunization recording purposes.</td>
     </tr>
     <tr>
       <td>Patient Case Report Form for COVID-19</td>
-      <td>Practitioner, Location, Patient, Encounter, DiagnosticResult, Observation</td>
-      <td>Practitioner reports on Patient resource, and adds summary information about COVID-19 test results in Encounter, DiagnosticResult, Observation.</td>
+      <td>Practitioner, Location, Observation</td>
+      <td>Practitioner reports on Patient resource.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="methodology-and-workflows">Methodology and Workflows</h3>
+<h3 id="examples">Examples</h3>
+
+<p>In the repository under /covid, there are examples FLOIP and RapidPro flows that address several of the above use cases.</p>
+
+<h3 id="unsupported">Unsupported</h3>
+
+<p>A single resource for Immunization is extracted from a Questionnaire and QuestionnaireResponse converted from FLOIP/RapidPro. <strong>Optional</strong>: Location, Organization, Encounter, etc</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Use Case</strong></td>
+      <td><strong>FHIR Resources</strong></td>
+      <td>Methodology/Workflow</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>and adds summary information about COVID-19 test results in Encounter, DiagnosticResult, Observation.</p>
+
+<h3 id="advanced-methodology-and-workflows">Advanced Methodology and Workflows</h3>
+
+<p>The first step in communicating with health workers through mHero and FLOIP or RapidPro is to</p>
 
 <p>TBD</p>
 
@@ -242,8 +277,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <div class="container">    <!-- container -->
 
       <div class="inner-wrapper">
-        <p><a name="l460">​</a>
-          IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Tue, Nov 30, 2021 20:47+0000">2021-11-30</span>
+        <p><a name="l527">​</a>
+          IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Dec 1, 2021 15:01+0000">2021-12-01</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
