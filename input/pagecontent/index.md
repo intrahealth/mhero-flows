@@ -1,7 +1,7 @@
-### mHero Flows Library and FHIR Interoperability Framework (mhero-flows)
+### mHero Flows Library and FHIR Interoperability (mhero-flows)
 
 <br/><br/>
-<img src="mherlogo.png" class="center" width="350">
+<img src="mherlogo.png" class="center" width="200">
 <br/><br/>
 
 This Implementation Guide (IG) demonstrates a prototypical framework for working with mHero and it's FHIR backend and short messages in FLOIP or RapidPro format.

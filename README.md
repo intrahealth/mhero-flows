@@ -2,7 +2,7 @@
 
 **IntraHealth International**
 
-# mHero Flows Library and FHIR Interoperability Framework (mhero-flows)
+# mHero Flows Library and FHIR Interoperability (mhero-flows)
 ![build ig](https://github.com/intrahealth/mhero-flows/workflows/build_fsh/badge.svg)
 ![build ddcc fsh](https://github.com/intrahealth/mhero-flows/workflows/build_fsh/badge.svg)
 ![build ddcc ig](https://github.com/intrahealth/mhero-flows/workflows/build_ig/badge.svg)
