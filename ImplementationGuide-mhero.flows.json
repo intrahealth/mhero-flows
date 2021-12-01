@@ -367,13 +367,8 @@
           "generation": "markdown"
         },
         {
-          "nameUrl": "floip2rpro.html",
-          "title": "RapidPro to FLOIP",
-          "generation": "markdown"
-        },
-        {
-          "nameUrl": "floip2fhir.html",
-          "title": "FLOIP to FHIR",
+          "nameUrl": "utilities.html",
+          "title": "Utilities",
           "generation": "markdown"
         },
         {

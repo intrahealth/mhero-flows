@@ -90,10 +90,7 @@
     <a href="data.html">mHero flows to FHIR</a>
   </li>
   <li>
-    <a href="floip2rpro.html">RapidPro to FLOIP</a>
-  </li>
-  <li>
-    <a href="floip2fhir.html">FLOIP to FHIR</a>
+    <a href="utilities.html">Utilities</a>
   </li>
   <li>
     <a href="languages.html">Flows in Multiple Languages</a>
@@ -146,15 +143,25 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div>
   <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown. -->
 </div>
-<h3 id="synchronizing-contacts-to-fhir-practitioners">Synchronizing Contacts to FHIR Practitioners</h3>
+<h3 id="how-contact-synchronization-works">How Contact Synchronization Works</h3>
+
+<p>Currently, mHero syncs contacts as FHIR Practitioners. The sync can be one-way – meaning from mHero to RapidPro or two-way between both systems.</p>
 
 <p>mHero has a method called syncContacts which is scheduled to run and synchronize contacts between Rapidpro and mHero. mHero does below steps to achieve this:</p>
 
 <ul>
   <li>Pulls all FHIR Practitioners.</li>
   <li>Pulls all Rapidpro contacts.</li>
-  <li>Loop through each FHIR Practitioner and create a Rapidpro add contact request that includes a field specifying the entity type I.e Practitioner, Patient e.t.c and entity ID which is the FHIR Practitioner ID, and then makes a post request to rapidpro to create a Practitioner as a contact in Rapidpro. The respective Rapidpro contact uuid is also added to the corresponding FHIR Practitioner as an Identifier with system being “http://app.rapidpro.io/contact-uuid” and the value being the contact uuid and then a Practitioner get updated as well.</li>
-  <li>mHero also checks if two way synchronization is enabled, if it is enabled then it loops through all the rapidpro contacts to see any contact that is in rapidpro and missing in mHero,  if it finds any then it converts that Rapidpro contact to a FHIR Practitioner with the Rapidpro contact uuid being added as an identifier to the FHIR Practitioner then a Practitioner is saved into FHIR server. The respective FHIR Practitioner ID and entity types are also added back to the corresponding Rapidpro contact as fields and the Rapidpro gets updated with these changes on the contact.</li>
+  <li>Loops through each FHIR Practitioner and:
+    <ul>
+      <li>creates a RapidPro add contact request that includes a field specifying the entity type ie. Practitioner, Patient etc and entity ID which is the FHIR Practitioner ID, and then makes a POST request to RapidPro to create a Practitioner as a contact in RapidPro. The respective RapidPro contact UUID is also added to the corresponding FHIR Practitioner as an Identifier with system being “http://app.rapidpro.io/contact-uuid” and the value being the contact UUID and then a Practitioner gets updated as well.</li>
+    </ul>
+  </li>
+  <li>mHero also checks if two way synchronization is enabled, if it is enabled then it loops through all the RapidPro contacts to see any contact that is in RapidPro and missing in mHero.
+    <ul>
+      <li>If it finds any then it converts that RapidPro contact to a FHIR Practitioner with the RapidPro contact uuid being added as an identifier to the FHIR Practitioner then a Practitioner is saved into FHIR server. The respective FHIR Practitioner ID and entity types are also added back to the corresponding RapidPro contact as fields and the Rapidpro gets updated with these changes on the contact.</li>
+    </ul>
+  </li>
 </ul>
 
 
@@ -181,8 +188,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <div class="container">    <!-- container -->
 
       <div class="inner-wrapper">
-        <p><a name="l321">​</a>
-          IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Dec 1, 2021 20:49+0000">2021-12-01</span>
+        <p><a name="l330">​</a>
+          IG &copy; 2021+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.intrahealth.org">IntraHealth International</a>.  Package mhero.flows#0.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Dec 1, 2021 21:17+0000">2021-12-01</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)"></span>
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
