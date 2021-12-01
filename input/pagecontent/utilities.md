@@ -1,6 +1,19 @@
-### CLI for converting flow responses (FLOIP) to fhir questionnaire
+### Utilities
 
-Installation
+
+#### RapidPro Flows to FLOIP
+
+A proof-of-concept is available to convert RapidPro flows to the Flow Standard. See https://github.com/FLOIP/flow-utils
+
+
+#### CLI for Converting Flow Responses (FLOIP) to FHIR Questionnaire
+
+The repository includes a CLI based on [FLOIP Utils](https://github.com/FLOIP/flow-utils) to convert FLOIP responses to FHIR Questionnaire and QuestionnaireResponses.
+
+
+###### Installation
+
+First, clone the repository, 
 ```bash
 git clone https://github.com/intrahealth/mhero-flows.git
 ```
@@ -12,6 +25,8 @@ cd mhero-flows/floip2fhir
 ```bash
 npm i
 ```
+
+##### Usage
 
 If only frPackage is included then the output will be a Questionnaire resource only, but if both frPackage and flowResponses are included then the response will be a Questionnaire and QuestionnaireResponse resources
 
