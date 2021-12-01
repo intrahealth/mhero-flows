@@ -1,64 +1,49 @@
-### Supported Use Cases
+### Use Cases
 
-As a vital communications and health worker registry platform. mHero is used across diverse use cases to communicate both routine and urgent messages to health workers; target messages** to health workers based on cadre, location, or skill set; collect critical information that powers resilient health systems; and build capacity and provide support.
+As a vital communications and health worker registry platform. mHero is used across diverse use cases to communicate both routine and urgent messages to health workers; target messages to health workers based on cadre, location, or skill set; collect critical information that powers resilient health systems; and build capacity and provide support.
 
 Current mHero provides the ability to 
 * Convert RapidPro contacts into FHIR Practitioner resources, and
 * Perform one-way or two-way sychronization, and
-* Convert RapidPro flow runs into Questionnaire Responses.
+* Convert RapidPro flow runs into FHIR Questionnaires and Questionnaire Responses.
+
+There are additional command line utilities to:
+* Convert RapidPro flows to FLOIP flows.
+* Convert FLOIP flows to FHIR Questionnaires and QuestionnaireResponses.
 
 This means that mHero has built-in features to accomplish several use cases. 
 
-| **Use Case** | **FHIR Resources** | Methodology/Workflow |
-| --- | --- | --- |
-| Sync health worker contacts between RapidPro and a health worker registry | Practitioner, Location | mHero two-way syncs contacts (and groups) with RapidPro. |
-| Weekly reporting reminder to facility leads | Practitioner, Location, Communication | One-way messages are stored in FHIR as Communication. |
-| Broadcast one-way messages to CHWs from a point-of-service system | Practitioner, Location, Communication | POS system syncs contacts with the health worker registry.
-| Facility report on staff and patients vaccinated | Practitioner, Location |  |
-| Aggregate report on COVID-19 hospitalizations | Practitioner, Location |  |
-| Health workers register to do reporting via SMS/WhatsApp | Practitioner, PractitionerRole,  QuestionnaireResponse | The Practitioner and PractitionerRole responses from a Questionnaire and QuestionnaireResponse are converted from FLOIP/RapidPro. |
-| Health workers self-report on vaccination status and stocks | Patient, Immunization, Practitioner,  QuestionnaireResponse | Practitioner is both Practitioner and Patient for immunization recording purposes. |
-| Patient Case Report Form for COVID-19 | Practitioner, Location, Observation | Practitioner reports on Patient resource. |
+### Supported Use Cases
 
+| **Prototypical Use Case** | **Status** |
+| --- | --- |
+| Sync health worker contacts between RapidPro and a health worker registry | Capability built-into mHero. Settings enable one-way or two-way sync. |
+| Weekly reporting reminder to facility leads | Capability built-into mHero. Flow must be authored in FLOIP/RapidPro. |
+| Broadcast one-way messages to CHWs from a point-of-service system | API is available. Requires integration of the POS with mHero. |
+| Facility report on staff and patients vaccinated | A demo flow is provided. |
+| Aggregate report on COVID-19 hospitalizations | A demo flow is provided. |
+| Health workers register to do reporting via SMS/WhatsApp | A demo flow is provided. |
+| Health workers self-report on vaccination status and stocks | A demo flow is provided. |
+| Patient Case Report Form for COVID-19 | A demo flow is provided. |
 
-### Examples
+### Provided Examples
 
-In the repository under /covid, there are examples FLOIP and RapidPro flows that address several of the above use cases.
+In the repository under /covid, there are examples FLOIP and RapidPro flows that address several of the above use cases. There are both FLOIP and RapidPro versions of the flows.
 
+### How mHero Stores Content in FHIR
 
-### Unsupported
+* Health workers (contacts) in RapidPro and FLOIP are by default stored as Practitioners. 
+* Flows are stored in FHIR as Questionnaires. Flow runs are stored as QuestionnaireResponses. 
 
+### Advanced -- Structured Data Capture
 
-A single resource for Immunization is extracted from a Questionnaire and QuestionnaireResponse converted from FLOIP/RapidPro. **Optional**: Location, Organization, Encounter, etc
+There is an Implementation Guide in the FHIR community that defines how to extract data in any resource to another type of resource. This is termed Structured Data Capture (SDC). There are [three mechanisms](http://build.fhir.org/ig/HL7/sdc/extraction.html):
 
-
-
-| **Use Case** | **FHIR Resources** | Methodology/Workflow |
-
-
- and adds summary information about COVID-19 test results in Encounter, DiagnosticResult, Observation.
-
-
-
-### Advanced Methodology and Workflows
-
-
-The first step in communicating with health workers through mHero and FLOIP or RapidPro is to 
-
-TBD
-
-**Sync health worker contacts between RapidPro and a health worker registry**
-
-**Weekly reporting reminder to facility leads**
-
-**Broadcast one-way messages to CHWs from a point-of-service system**
-
-**Facility report on staff and patients vaccinated**
-
-**Aggregate report on COVID-19 hospitalizations**
-
-**Health workers register to do reporting via SMS/WhatsApp**
-
-**Health workers self-report on vaccination status and stocks**
-
-**Patient Case Report Form for COVID-19**
+* **Observation-based**
+    * This process converts all QuestionnaireResponses to Observations. This is simple but does not convert to any base resources that would be used by an EHR or other system.
+* **Definition-based**: In this mechanism, either the Questionnaire or QuestionnaireResponses contains attributes for conversion. 
+    * This places the burden of conversion between resources types on the Questionnaire author. A demonstration copied from the SDC repository is provided. 
+    * Note that at the time of writing that this capability is not available in an open source API-based solution. (It is available in the Google Android FHIR SDK but this is not applicable to short messaging applications.) See: https://confluence.hl7.org/display/FHIRI/SDC+Implementations
+* **Structure-map based**
+    * This is the most flexible but requires using the FHIR Mapping Language inside a StructureMap resource. * There is some support, for example from [Matchbox](https://github.com/ahdis/matchbox). 
+    * This is also the most complicated approach as it requires learning a new FHIR-oriented programming language. Questionnaires must be written for FHIR and then StructureMaps manually created in addition.

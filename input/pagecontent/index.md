@@ -6,7 +6,7 @@
 
 This Implementation Guide (IG) demonstrates a prototypical framework for working with mHero and it's FHIR backend and short messages in FLOIP or RapidPro format.
 
-The tooling is meant to provide a basis to understand the reference tooling and how to test their own profiled mHero workflows. In this draft status, this tooling does not contain conformance resources. It only contains documentation and tooling.
+The documentation assumes a working knowledge of the basics of mHero and FLOIP or RapidPro. The tooling is meant to provide a basis to understand the reference tooling and how to test their own profiled mHero workflows. In this draft status, this tooling does not contain conformance resources. It only contains documentation and tooling.
 
 Comments are welcome. Please submit a [GitHub Issue](https://github.com/intrahealth/mhero-flows/issues/new/choose).
 

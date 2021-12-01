@@ -144,7 +144,11 @@ pages:
   practitioners.md:
     title: "Synchronizing Contacts to FHIR Practitioners"
   data.md:
-    title: "FHIR Data and Short Messaging Flows"
+    title: "mHero flows to FHIR"
+  floip2rpro.md:
+    title: "RapidPro to FLOIP"
+  floip2fhir.md:
+    title: "FLOIP to FHIR"
   languages.md:
     title: "Flows in Multiple Languages"
 
@@ -180,7 +184,9 @@ menu:
   # Quick Start: quickstart.html
   Supported Use Cases: usecases.html
   Synchronizing Contacts to FHIR Practitioners: practitioners.html
-  FHIR Data and Short Messaging Flows: data.html
+  mHero flows to FHIR: data.html
+  RapidPro to FLOIP: floip2rpro.html
+  FLOIP to FHIR: floip2fhir.html
   Flows in Multiple Languages: languages.html
 
 #  Artifacts:
