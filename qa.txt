@@ -3,7 +3,7 @@
 
 err = 4, warn = 4, info = 0
 IG Publisher Version: 1.1.89
-Generated Wed Dec 01 21:18:08 UTC 2021. FHIR version 4.0.1 for mhero.flows#0.0.1 (canonical = https://intrahealth.github.io/mhero-flows)
+Generated Thu Dec 02 22:14:17 UTC 2021. FHIR version 4.0.1 for mhero.flows#0.0.1 (canonical = https://intrahealth.github.io/mhero-flows)
  Build Errors : 19 / 2 / 0
  /github/workspace/fsh-generated/resources/ImplementationGuide-mhero.flows : 3 / 1 / 1
  /github/workspace/fsh-generated/resources/Questionnaire-demographics : 0 / 0 / 1
@@ -29,7 +29,7 @@ ERROR: /github/workspace/output/index.html#/html/body/div/div/div/p/a at Line 21
 ERROR: /github/workspace/output/languages.html#/html/body/div/div/div/p/a at Line 189, column 19: The link 'license.html' for "" cannot be resolved
 ERROR: /github/workspace/output/practitioners.html#/html/body/div/div/div/p/a at Line 200, column 19: The link 'license.html' for "" cannot be resolved
 ERROR: /github/workspace/output/toc.html#/html/body/div/div/div/p/a at Line 164, column 19: The link 'license.html' for "" cannot be resolved
-ERROR: /github/workspace/output/usecases.html#/html/body/div/div/div/p/a at Line 285, column 19: The link 'license.html' for "" cannot be resolved
+ERROR: /github/workspace/output/usecases.html#/html/body/div/div/div/p/a at Line 314, column 19: The link 'license.html' for "" cannot be resolved
 ERROR: /github/workspace/output/utilities.html#/html/body/div/div/div/p/a at Line 214, column 19: The link 'license.html' for "" cannot be resolved
 == fsh-generated/resources/ImplementationGuide-mhero.flows.json ==
 ERROR: ImplementationGuide.where(url = 'https://intrahealth.github.io/mhero-flows'): Conformance resource /github/workspace/fsh-generated/resources/ImplementationGuide-mhero.flows.json - the canonical URL (https://intrahealth.github.io/mhero-flows/ImplementationGuide/mhero.flows) does not match the URL (https://intrahealth.github.io/mhero-flows)
