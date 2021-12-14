@@ -2,7 +2,7 @@
 
 There are multiple opportunities and challenges with proceeding with short messaging flows to FHIR workflows outside of a singular language. There are different approaches depending on whether the implementer will use one dominant language, or is in context in which there must be multiple languages simultaneously supported. For the most comprehensive overview, see this [talk](https://www.youtube.com/watch?v=F44uXBvIb0Y) by Rene Spronk.
 
-Note > FHIR IDs (resource.id) are limited to [ASCII](https://www.hl7.org/fhir/datatypes.html#primitive). But, identifiers, code systems, and other key values are usable in Unicode.
+> **Note**: FHIR IDs (resource.id) are limited to [ASCII](https://www.hl7.org/fhir/datatypes.html#primitive). But, identifiers, code systems, and other key values are usable in Unicode.
 
 Per the [specification](https://build.fhir.org/languages.html), there are several approaches that may be used, specifically:
 
